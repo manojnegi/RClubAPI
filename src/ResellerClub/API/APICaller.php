@@ -19,6 +19,12 @@ class APICaller {
     protected $pricing ;
     protected $billing ;
     protected $orderManagement ;
+    protected $product ;
+    protected $digitalcertificate ;
+    protected $freeemailservice ;
+
+
+    protected $dns ;
 
 
 
@@ -30,6 +36,13 @@ class APICaller {
 	// instantiates your classes		
         $this->domain = new Domain($this);
 		$this->customer = new Customer($this);
+        $this->product = new Product($this);
+        $this->digitalcertificate = new DigitalCertificate($this) ;
+         $this->freeemailservice = new FreeEmailService($this) ;
+
+        
+
+        $this->dns = new Dns($this);
 		
     }
 
@@ -110,6 +123,32 @@ class APICaller {
         } else {
             throw new CustomException("No method called $name available in ".__CLASS__);
         }
+    }
+
+
+
+
+    /*
+    *
+    * this function call the reseller club apis and get the response.
+    *
+    */
+    public function callApi($endpointurl,$params,$method) {
+
+
+         $endPoint = Http::prepare($endpointurl);
+
+         if($method == 'GET') {
+                $response = json_decode(Http::send($this->apicaller, $endPoint, $params, $method));
+                 if (!is_object($response)) {
+                     throw new ResponseException(__METHOD__);
+                    }
+        } else if($method == 'POST') {
+
+             $response = Http::send($this->apicaller, $endPoint, $params, $method);
+        }
+        return $response;
+
     }
 
     /*
