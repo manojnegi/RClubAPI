@@ -27,11 +27,10 @@ class ESMDomainTest {
 	*/
 
 	public function isOwnershipVerified() {
-			auth-userid=0&api-key=key&order-id=0
+			
 
-		$ca = $this->apicaller->product()->checkAvailability(array (
-																'domain-name'=>'abcd',
-																'product-key'=>'2705138'
+		$ca = $this->apicaller->essdomain()->isOwnershipVerified(array (
+																'order-id'=>'0',
 		));
 
 		print_r($ca);
@@ -46,25 +45,30 @@ class ESMDomainTest {
 	*/
 	public function addDomainAlias() {
 
-		auth-userid=0&api-key=key&order-id=0&alias=alias-domainname.com
-
-		$pd = $this->apicaller->product()->getDetails(array());
+		
+		$pd = $this->apicaller->essdomain()->addDomainAlias(array('order-id'=0,
+											'alias'=>'alias-domainname.com'));
 		echo "<pre>";
 		print_r($pd);
 	}
 
 
 	public function deleteDomainAlias(){
-				auth-userid=0&api-key=key&order-id=0&alias=alias-domainname.com
-			$pd = $this->apicaller->product()-> getProductCategoryProductKeysMapping(array());
+			
+			$pd = $this->apicaller->essdomain()-> deleteDomainAlias(array(
+												'order-id'=>0,
+												'alias'=>'alias-domainname.com'
+												)
+			);
+
 		echo "<pre>";
 		print_r($pd);
 
 	}
 
 	public function getNotificationEmail() {
-			auth-userid=0&api-key=key&order-id=0
-		$pd = $this->apicaller->product()->getPlanDetails(array());
+			
+		$pd = $this->apicaller->essdomain()->getNotificationEmail(array('order-id'=>0 ));
 		echo "<pre>";
 		print_r($pd);
 
@@ -72,14 +76,11 @@ class ESMDomainTest {
 
 
 	public function modifyNotificationEmail(){
-			auth-userid=0&api-key=key&order-id=0&notification-email=user1@emailaddress2.com
-
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essdomain()->modifyNotificationEmail(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0 ,	
+					'notification-email'=>'user1@emailaddress2.com	'
 				) );
 
 
@@ -90,13 +91,10 @@ class ESMDomainTest {
 
 	public function getCatchAllAcount(){
 
-			auth-userid=0&api-key=key&order-id=0
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essdomain()->getCatchAllAcount(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0 ,	
 				) );
 
 
@@ -106,14 +104,12 @@ class ESMDomainTest {
 	}
 
 	public function activateCatchAllAcount(){
-				auth-userid=0&api-key=key&order-id=0&catchall-email=user1@domainname.com
+			
 
-		$m 	=$this->apicaller->product()->move(array (
+		$m 	=$this->apicaller->essdomain()->activateCatchAllAcount(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0 ,
+					'catchall-email'=>'user1@domainname.com'	
 				) );
 
 
@@ -124,13 +120,10 @@ class ESMDomainTest {
 
 	public function deactivateCatchAllAcount(){
 
-			auth-userid=0&api-key=key&order-id=0
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essdomain()->deactivateCatchAllAcount(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'	=>	0,	
 				) );
 
 
@@ -141,13 +134,11 @@ class ESMDomainTest {
 
 	public function getDNSRecords(){
 
-			auth-userid=0&api-key=key&order-id=0
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essdomain()->getDNSRecords(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'	=>	0,
+						
 				) );
 
 

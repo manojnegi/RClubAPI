@@ -20,14 +20,11 @@ class DigitalCertificateTest {
 	
 
 
-	/*
-		
-
-	*/
+	
 
 	public function add() {
-		auth-userid=0&api-key=key&domain-name=domainname&customer-id=0&years=0&additional-licenses=0&cert-key=wild&invoice-option=NoInvoice
-$a = $apicaller->digitalcertificate()->add(array ( 
+
+		$a = $apicaller->digitalcertificate()->add(array ( 
 																
 																'domain-name'=>'www.afddf.com',
 																'customer-id'=>'11167692',
@@ -37,7 +34,7 @@ $a = $apicaller->digitalcertificate()->add(array (
 																'invoice-option'=>'NoInvoice'
  														));
 
-print_r ($a);
+		print_r ($a);
 	}
 
 
@@ -59,71 +56,139 @@ print_r ($a);
 
 	public function enroll() {
 
-		auth-userid=0&api-key=key&order-id=0&attr-name1=org_name&attr-value1=name&attr-name2=org_street1&attr-value2=Organizationaddress
+		
+		$c = $apicaller->digitalcertificate()->cancel(array ( 
+
+															'order-id'=>'54732819',
+															'attr-name1'=>'org_name',
+															'attr-value1'=>'name',
+															'attr-name2'=>'org_street1',
+															'attr-value2'=>'Organizationaddress'
+														)
+		);
+
+		print_r($c)
+
 	}
 
 	
 	public function checkStatus() {
 		
-		auth-userid=0&api-key=key&order-id=0&standard-certificate-format=true
-		$apicaller->digitalcertificate()->checkStatus(array ( 
+		
+		$cs = $apicaller->digitalcertificate()->checkStatus(array ( 
 																'order-id'=>'54732819',
 																'standard-certificate-format'=>'true'
 																	));
-
+		print_r($cs)
 	}
 
 
 	public function details(){
 
-			auth-userid=0&api-key=key&order-id=0&option=All
+			$cs = $apicaller->digitalcertificate()->details(array ( 
+																'order-id'=>'54732819',
+																'option'=>'All'
+																	));
+		print_r($cs)
 
 
 	}
 
 	
 	public function search(){
-			auth-userid=0&api-key=key&no-of-records=10&page-no=1
+	
+			$cs = $apicaller->digitalcertificate()->search(array ( 
+																'no-of-records'=>10,
+																'page-no'=>1
+																)
+			);
+
+			print_r($cs)
 
 	}
 
 	
 	public function getOrderId(){
 
-			auth-userid=0&api-key=key&domain-name=xyz
+		$cs = $apicaller->digitalcertificate()->getOrderId(array ( 
+																'domain-name'=>'xyz'
+																)
+		);
+
+		print_r($cs)
 
 	}
 
 	
 	public function reissue(){
 
-			auth-userid=0&api-key=key&order-id=0&csr-string=-----BEGIN NEW CERTIFICATE REQUEST---MIIBwzCCASwCAQAwgYIxCzAJBgNVB-----END NEW CERTIFICATE REQUEST----&csr-software=IIS&approver-email=wew@approver.com
+			
+		
+		$cs = $apicaller->digitalcertificate()->reissue(array ( 
+																'order-id'=>0,
+																'csr-string'=>'-----BEGIN NEW CERTIFICATE REQUEST---MIIBwzCCASwCAQAwgYIxCzAJBgNVB-----END NEW CERTIFICATE REQUEST----',
+																'csr-software'=>'IIS',
+																'approver-email'=>'wew@approver.com'
+																)
+		);
+
+		print_r($cs)
 	}
 	
 
 	public function renew(){
 
-			auth-userid=0&api-key=key&order-id=0&years=1&exp-date=1279012036&invoice-option=NoInvoice&attr-name1=org_name&attr-value1=The organisation Name&attr-name2=org_street1&attr-value2=Organization address
+			
+
+	$cs = $apicaller->digitalcertificate()->renew(array ( 
+																'order-id'=>0,
+																'years'=>1,
+																'exp-date'=>'1279012036',
+																'invoice-option'=>'NoInvoice',
+																'attr-name1'=>'org_name'
+																'attr-value1'=>'The organisation Name',
+																'attr-name2'=>'org_street1',
+																'attr-value2'=>'Organization address'
+																)
+		);
+
+		print_r($cs)
 
 	}
 	
 	//ordermanagement
 	public function suspend(){
 
-			auth-userid=0&api-key=key&order-id=0&reason=reason-for-suspension
+			$cs = $apicaller->digitalcertificate()->suspend(array ( 
+																'order-id'=>0,
+																'reason'=>'reason-for-suspension'
+																)
+		);
+
+		print_r($cs)
 	}
 	
 //order management 
 	public function unsuspend(){
 
-			auth-userid=0&api-key=key&order-id=0
+			$cs = $apicaller->digitalcertificate()->unsuspend(array ( 
+																'order-id'=>0
+																)
+		);
 
+		print_r($cs)
 	}
 	
 
 	public function delete(){
 
-			auth-userid=0&api-key=key&order-id=0
+			$cs = $apicaller->digitalcertificate()->delete(array ( 
+																'order-id'=>0
+																
+																)
+		);
+
+		print_r($cs)
 
 
 	}

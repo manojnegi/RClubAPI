@@ -26,11 +26,10 @@ class ProductTest {
 	*/
 
 	public function activate() {
-			auth-userid=0&api-key=key&order-id=0
 
-		$ca = $apicaller->product()->checkAvailability(array (
-																'domain-name'='domain.com',
-																'product-key'='key'
+		$ca = $apicaller->domainforwardingservice()->activate(array (
+																'order-id'=>'0',
+												
 		));
 
 		print_r($ca);
@@ -45,21 +44,38 @@ class ProductTest {
 	*/
 	public function getDetails() {
 
-		auth-userid=0&api-key=key&order-id=0
+	
+		$ca = $apicaller->domainforwardingservice()->getDetails(array (
+																'order-id'=>'0',
+												
+		));
+
+		print_r($ca);
 	}
 
 
 
 
 	public function manage() {
-		auth-userid=0&api-key=key&order-id=0
+		
+		$ca = $apicaller->domainforwardingservice()->manage(array (
+																'order-id'=>'0',
+												
+		));
+
+		print_r($ca);
 
 	}
 
 
 	public function getDnsRecords(){
 
-			auth-userid=0&api-key=key&domain-name=domainname.com
+			$ca = $apicaller->domainforwardingservice()->getDnsRecords(array (
+																'domain-name'=>'domainname.com'
+												
+		));
+
+		print_r($ca);
 
 
 	}

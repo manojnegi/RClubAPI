@@ -27,11 +27,16 @@ class ESMMailingListTest {
 	*/
 
 	public function addMailingList() {
-			auth-userid=0&api-key=key&order-id=0&list-address=list-name@domainname.com&subscription-held=false&who-can-post=only_members&send-messages-for-moderation=false&reply-to=sender&moderators=user1@domainname.com,user2@domainname.com
+		
 
-		$ca = $this->apicaller->product()->checkAvailability(array (
-																'domain-name'=>'abcd',
-																'product-key'=>'2705138'
+		$ca = $this->apicaller->essmailinglist()->addMailingList(array (
+																'order-id'=>0 ,
+					 									'list-address'=>'list1@domainname.com',
+					 									'subscription-held'=>'false',
+					 									'who-can-post'=>'only_members',
+					 									'send-messages-for-moderation'=>'false',
+					 									'reply-to'='sender',
+					 									'moderators'=>'user1@domainname.com,user2@domainname.com'
 		));
 
 		print_r($ca);
@@ -46,25 +51,38 @@ class ESMMailingListTest {
 	*/
 	public function modifyMailingList() {
 
-		auth-userid=0&api-key=key&order-id=0&list-address=list-name@domainname.com&subscription-held=false&who-can-post=only_members&send-messages-for-moderation=false&reply-to=sender
+		
 
-		$pd = $this->apicaller->product()->getDetails(array());
+		$pd = $this->apicaller->essmailinglist()->modifyMailingList(array(
+														'order-id'=>0 ,
+					 									'list-address'=>'list1@domainname.com',
+					 									'subscription-held'=>'false',
+					 									'who-can-post'=>'only_members',
+					 									'send-messages-for-moderation'=>'false',
+					 									'reply-to'='sender'
+
+					 									)
+		);
 		echo "<pre>";
 		print_r($pd);
 	}
 
 
-	public function getMailingListOfDomain(){
-			auth-userid=0&api-key=key&order-id=0
-			$pd = $this->apicaller->product()-> getProductCategoryProductKeysMapping(array());
+	public function getMailingListDomain(){
+			
+			$pd = $this->apicaller->essmailinglist()-> getMailingListDomain(array('order-id'=>0 ,));
 		echo "<pre>";
 		print_r($pd);
 
 	}
 
 	public function getDetails() {
-			auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com
-		$pd = $this->apicaller->product()->getPlanDetails(array());
+			
+		$pd = $this->apicaller->essmailinglist()->getDetails(array( 
+														'order-id'=>0 ,
+					 									'list-address'=>'list1@domainname.com'
+					 									)
+		);
 		echo "<pre>";
 		print_r($pd);
 
@@ -72,14 +90,12 @@ class ESMMailingListTest {
 
 
 	public function addSubscribers(){
-			auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com&subscribers=user1@domainname.com,user2@domainname.com
-
-		$m 	=$this->apicaller->product()->move(array (
+			
+			$m 	=$this->apicaller->essmailinglist()->addSubscribers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					 'order-id'=>0 ,
+					 'list-address'=>'list1@domainname.com',
+					 'subscribers'=>'user1@domainname.com,user2@domainname.com'				
 				) );
 
 
@@ -90,13 +106,12 @@ class ESMMailingListTest {
 
 	public function listSubscribers(){
 
-			auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+		$m 	=$this->apicaller->essmailinglist()-> listSubscribers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					
+					 'order-id'=>0 ,
+					 'list-address'=>'list1@domainname.com',
+					 		
 				) );
 
 
@@ -106,14 +121,13 @@ class ESMMailingListTest {
 	}
 
 	public function deleteSubscribers(){
-				auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com&subscribers=user1@domainname.com,user2@domainname.com
+		
 
-		$m 	=$this->apicaller->product()->move(array (
+		$m 	=$this->apicaller->essmailinglist()->deleteSubscribers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					 'order-id'=>0 ,
+					 'list-address'=>'list1@domainname.com',
+					 'subscribers'=>'user1@domainname.com,user2@domainname.com'			
 				) );
 
 
@@ -124,13 +138,11 @@ class ESMMailingListTest {
 
 	public function deleteMailingList(){
 
-			auth-userid=0&api-key=key&order-id=0&list-address-prefixes=list1,list2
-		$m 	=$this->apicaller->product()->move(array (
+		
+		$m 	=$this->apicaller->essmailinglist()->deleteMailingList(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					'list-address-prefixes'=>'list1,list2	'
 				) );
 
 
@@ -141,13 +153,12 @@ class ESMMailingListTest {
 
 	public function addModerators(){
 
-			auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com&moderators=user1@domainname.com,user2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essmailinglist()->addModerators(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					 'order-id'=>0 ,
+					 'list-address'=>'list1@domainname.com',
+					 'moderators'=>'user1@domainname.com,user2@domainname.com'		
 				) );
 
 
@@ -159,13 +170,12 @@ class ESMMailingListTest {
 
 	public function deleteModerators(){
 
-			auth-userid=0&api-key=key&order-id=0&list-address=list1@domainname.com&moderators=user1@domainname.com,user2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->essmailinglist()->deleteModerators(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					 'order-id'=>0 ,
+					 'list-address'=>'list1@domainname.com',
+					 'moderators'=>'user1@domainname.com,user2@domainname.com'	
 				) );
 
 
