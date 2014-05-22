@@ -12,37 +12,87 @@ class APICaller {
 	protected $password;
     protected $apiUrl;
 
-	// add your class name as proptected property
+	
+    // add your class name as proptected property
+    protected $actions;
+    protected $billing ;
+    protected $contact ;
     protected $domain;
 	protected $customer;
-    protected $subResellers ;
-    protected $pricing ;
-    protected $billing ;
-    protected $orderManagement ;
-    protected $product ;
+    protected $dsplinuxplans ;
     protected $digitalcertificate ;
-    protected $freeemailservice ;
-
-
     protected $dns ;
+    protected $domainforwardingservice ;
+    protected $esmdomain ;
+    protected $esmmailinglist ;
+    protected $email ;
+    protected $emailaccount ;
+    protected $enterpriseemail ;
+    protected $freeemailservice ;
+    protected $general ;
+    protected $legalagreement ;
+    protected $mdhlinuxplan ;
+    protected $mdhwindowsplan ;
+    protected $managednsrecord ;
+    protected $orderManagement ;
+    protected $paymentgateway ;
+    protected $pricing ;
+    protected $product ;
+    protected $rhlinuxplans;
+    protected $rhwindowsplans;
+    protected $sdhlinuxplan ;
+    protected $sdhwindowsplan ;
+    protected $subreseller ;
+    protected $vpslinuxplans ;
 
+    
 
-
+  
+    /*
+        //constructor
+    */
     public function __construct($apihost, $authid) {
         $this->apiUrl = $apihost;
 		$this->authid = $authid;
 		$this->debug = new Debug();
 		
-	// instantiates your classes		
-        $this->domain = new Domain($this);
-		$this->customer = new Customer($this);
-        $this->product = new Product($this);
-        $this->digitalcertificate = new DigitalCertificate($this) ;
-         $this->freeemailservice = new FreeEmailService($this) ;
+	
+    // instantiates your classes		
 
         
 
-        $this->dns = new Dns($this);
+        $actions = new Actions($this) ;
+        $billing = new Billing($this) ;
+        $contact = new Contact($this) ;
+        $customer = new Customer($this);
+        $dsplinuxplans = new DSPLinuxplans($this);
+        $digitalcertificate = new DigitalCertificate($this) ;
+        $dns = new Dns($this);
+        $domain  = new Domain($this) ;
+        $domainforwardingservice = new DomainForwardingService($this)s;
+        $esmdomain = new ESMDomain($this);
+        $esmmailinglist = new ESMMailingList($this);
+        $email = new Email($this);
+        $emailaccount = new EmailAccount($this);
+        $enterpriseemail = new EnterpriseEmail($this);
+        $freeemailservice = new FreeEmailService($this);
+        $general = new General($this);
+        $legalagreement = new LegalAgreement($this);
+        $mdhlinuxplan = new MDHLinuxPlan($this);
+        $mdhwindowsplan = new MDHWindowsPlan($this);
+        $managednsrecord = new ManageDnsRecord($this);
+        $orderManagement = new OrderManagement($this);
+        $paymentgateway = new PaymentGateway($this);
+        $pricing = new Pricing($this);
+        $product = new Product($this);
+        $rhlinuxplans = new RHLinuxPlans($this);
+        $rhwindowsplans = new RHWindowsPlans($this);     
+        $sdhlinuxplan = new SDHLinuxPlan($this);
+        $sdhwindowsplan = new SDHWindowsplan($this);
+        $subreseller = new SubReseller($this);
+        $vpslinuxplans = new VPSLinuxPlans($this);
+
+        
 		
     }
 
