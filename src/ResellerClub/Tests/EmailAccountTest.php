@@ -6,7 +6,7 @@ namespace ResellerClub\Tests;
 use ResellerClub\API\APICaller as RClubAPI;
 
 
-class ProductTest {
+class EmailAccountTest {
 
 	protected $apicaller ;
 
@@ -33,10 +33,10 @@ class ProductTest {
 																'email'=>'username@domainname.com',
 																'passwd'=>'user-password',
 																'notification-email'=>'username@alt-domainname.com',
-																'first-name'='firstname',
-																'last-name'='lastname',
-																'country-code'='US',
-																'language-code'='en'
+																'first-name'=>'firstname',
+																'last-name'=>'lastname',
+																'country-code'=>'US',
+																'language-code'=>'en'
 		));
 
 		print_r($ca);
@@ -52,8 +52,13 @@ class ProductTest {
 	public function addForwardOnlyAccount() {
 
 
-			order-id=0&email=username@domainname.com&forwards=user1@domainname.com,user2@domainname.com
-		$pd = $this->apicaller->product()->getDetails(array());
+			
+		$pd = $this->apicaller->emailaccount()->getDetails(array(
+															'order-id'=>0,
+															'email'=>'username@domainname.com',
+															'forwards'=>'user1@domainname.com,user2@domainname.com'
+															)
+		);
 		echo "<pre>";
 		print_r($pd);
 	}
@@ -64,7 +69,10 @@ class ProductTest {
 
 
 
-		$pd = $this->apicaller->product()->getUserDetails(array(order-id=0&email=username@domainname.com));
+		$pd = $this->apicaller->emailaccount()->getUserDetails(array(
+													'order-id'=>0
+													'email'=>'username@domainname.com'
+													));
 		echo "<pre>";
 		print_r($pd);
 
@@ -72,9 +80,15 @@ class ProductTest {
 
 	public function modifyUserDetails(){
 
-		auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&notification-email=username1@alt-domainname.com&first-name=firstname1&last-name=lastname1
+		
 
-			$pd = $this->apicaller->product()-> getProductCategoryProductKeysMapping(array());
+			$pd = $this->apicaller->emailaccount()-> modifyUserDetails(array(
+																	'order-id'=>0,
+																	'email'=>'username@domainname.com',
+																	'notification-email'=>'username1@alt-domainname.com',
+																	'first-name'=>'firstname1',
+																	'last-name'=>'lastname1'
+															));
 		echo "<pre>";
 		print_r($pd);
 
@@ -82,40 +96,65 @@ class ProductTest {
 
 	public function suspendUser() {
 
-		auth-userid=0&api-key=key&order-id=0&email=username@domainname.com
+	
+		$pd = $this->apicaller->emailaccount()->suspendUser(array(
+																	'order-id'=>0,
+																	'email'=>'username@domainname.com'
+																	
+															));
+		echo "<pre>";
+		print_r($pd);
 
 	}
 
 	public function suspendUsers() {
 
-		auth-userid=0&api-key=key&order-id=0&emails=username1@domainname.com,username2@domainname.coms
+		
+		$pd = $this->apicaller->emailaccount()-> suspendUsers(array(
+																	'order-id'=>0,
+																	'emails'=>'username1@domainname.com,username2@domainname.coms',
+																	
+															));
+		echo "<pre>";
+		print_r($pd);
 
 	}
 
 
 	public function unsuspendUser() {
 
-		auth-userid=0&api-key=key&order-id=0&email=username@domainname.com
+	
+		$pd = $this->apicaller->emailaccount()-> unsuspendUser(array(
+																	'order-id'=>0,
+																	'email'=>'username@domainname.com'
+																	
+															));
+		echo "<pre>";
+		print_r($pd);
 	}
 
 
 	public function unsuspendUsers() {
 
-		auth-userid=0&api-key=key&order-id=0&emails=username1@domainname.com,username2@domainname.com
+		
+		$pd = $this->apicaller->emailaccount()-> unsuspendUsers(array(
+																'order-id'=>0,
+																'emails'=>'username1@domainname.com,username2@domainname.coms',
+																	
+															));
+		echo "<pre>";
+		print_r($pd);
 
 	}
 
 
 
 	public function searchUsers(){
-			auth-userid=0&api-key=key&order-id=0
-
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->emailaccount()->searchUsers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					
 				) );
 
 
@@ -128,13 +167,10 @@ class ProductTest {
 	public function getNoOfUsers(){
 
 			
-			auth-userid=0&api-key=key&order-id=0
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->emailaccount()->getNoOfUsers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
 				) );
 
 
@@ -146,13 +182,13 @@ class ProductTest {
 
 	public function changePassword(){
 
-			auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&new-passwd=newpassword&old-passwd=oldpassword
-		$m 	=$this->apicaller->product()->move(array (
+		
+		$m 	=$this->apicaller->emailaccount()->changePassword(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					'email'=>'username@domainname.com',
+					'new-passwd'=>'newpassword',
+					'old-passwd'=>'oldpassword'
 				) );
 
 
@@ -163,13 +199,11 @@ class ProductTest {
 
 	public function resetPassword(){
 
-			auth-userid=0&api-key=key&order-id=0&email=username@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->emailaccount()->resetPassword(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					'email'=>'username@domainname.com',		
 				) );
 
 
@@ -183,13 +217,15 @@ class ProductTest {
 	public function updateAutoResponder(){
 
 				
-				auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&subject=subject-of-auto-responder&message=message-of-auto-responder&message-format=text/plain&quote-original-message=true&is-autoresponder-on=true
-		$m 	=$this->apicaller->product()->move(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+		$m 	=$this->apicaller->emailaccount()->updateAutoResponder(array (
+																'order-id'=>0,
+																'email'=>'username@domainname.com',	
+																'subject'=>'subject-of-auto-responder',
+																'message'=>'message-of-auto-responder',
+																'message-format'=>'text/plain',
+																'quote-original-message'=>true,
+																'is-autoresponder-on'=>true		
 				) );
 
 
@@ -201,13 +237,12 @@ class ProductTest {
 
 	public function authenticateUser(){
 
-			auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&passwd=user-password
-		$m 	=$this->apicaller->product()->move(array (
+			
+		$m 	=$this->apicaller->emailaccount()->authenticateUser(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+																'order-id'=>0,
+																'email'=>'username@domainname.com',	
+																'passwd'=>'user-password'	
 				) );
 
 
@@ -219,13 +254,11 @@ class ProductTest {
 
 	public function deleteUser(){
 
-auth-userid=0&api-key=key&order-id=0&email=username@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+
+		$m 	=$this->apicaller->emailaccount()->deleteUser(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+													'order-id'=>0,
+													'email'=>'username@domainname.com',	
 				) );
 
 
@@ -236,13 +269,10 @@ auth-userid=0&api-key=key&order-id=0&email=username@domainname.com
 
 	public function deleteUsers(){
 
-auth-userid=0&api-key=key&order-id=0&emails=username1@domainname.com,username2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+		$m 	=$this->apicaller->emailaccount()->deleteUsers(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+													'order-id'=>0,
+													'emails'=>'username1@domainname.com,username2@domainname.com',	
 				) );
 
 
@@ -254,13 +284,12 @@ auth-userid=0&api-key=key&order-id=0&emails=username1@domainname.com,username2@d
 
 	public function addAdminForwards(){
 
-auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user1@domainname.com,user2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+		$m 	=$this->apicaller->emailaccount()->addAdminForwards(array (
+				
+					'order-id'=>0,
+					'email'=>'username@domainname.com',
+					'forwards'=>'user1@domainname.com,user2@domainname.com	'
 				) );
 
 
@@ -271,13 +300,12 @@ auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user
 
 	public function deleteAdminForwards(){
 
-		auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user1@domainname.com,user2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
+		
+		$m 	=$this->apicaller->emailaccount()->deleteAdminForwards(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					'email'=>'username@domainname.com',
+					'forwards'=>'user1@domainname.com,user2@domainname.com	'	
 				) );
 
 
@@ -288,14 +316,13 @@ auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user
 
 
 	public function addUserForwards(){
-			auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user1@domainname.com,user2@domainname.com
+			
 
-		$m 	=$this->apicaller->product()->move(array (
+		$m 	=$this->apicaller->emailaccount()->addUserForwards(array (
 				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+					'order-id'=>0,
+					'email'=>'username@domainname.com',
+					'forwards'=>'user1@domainname.com,user2@domainname.com	'	
 				) );
 
 
@@ -306,13 +333,11 @@ auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user
 
 	public function deleteUserForwards(){
 
-		auth-userid=0&api-key=key&order-id=0&email=username@domainname.com&forwards=user1@domainname.com,user2@domainname.com
-		$m 	=$this->apicaller->product()->move(array (
-				
-					'domain-name'	=>	'domain.com',
-					'existing-customer-id'	=>	'11167292 ',
-					'new-customer-id'	=>	'12536458',
-					'default-contact'	=>	'o',		
+		
+		$m 	=$this->apicaller->emailaccount()->deleteUserForwards(array (
+												'order-id'=>0,
+												'email'=>'username@domainname.com',
+												'forwards'=>'user1@domainname.com,user2@domainname.com	'		
 				) );
 
 

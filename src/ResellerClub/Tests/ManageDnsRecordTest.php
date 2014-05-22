@@ -28,163 +28,362 @@ class ProductTest {
 
 	public function addIPv4AddressRecord() {
 
-						array( 'domain-name'='domain.asia',
-								'value'='0.0.0.0'
-							);
+		$d = $this->apicaller->managednsrecord()->addIPv4AddressRecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'0.0.0.0'
+														)
+		);
+
+
+		print_r($d);
 	}
 
 
 	public function addIPv6AddressRecord() {
 
-						array( 'domain-name'='domain.asia',
-							'value'='2001:252:0:1::2008:6'
+		$d = $this->apicaller->managednsrecord()->addIPv6AddressRecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'2001:252:0:1::2008:6'
 						);
+
+		);
+
+
+		print_r($d);
 	}
 
 
 	public function addCNAMERecord() {
 
-		array(	
-				'domain-name'='domain.asia',
-				'value'='www.domain.com'
+		
+		$d = $this->apicaller->managednsrecord()->addCNAMERecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'www.domain.com'
+						);
+
 		);
+		print_r($d);
 	}
 
 	public function addMXRecord() {
 
-		array(	
-				'domain-name'='domain.asia' ,
-				'value'='www.domain.com' 
+		$d = $this->apicaller->managednsrecord()->addMXRecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'www.domain.com'
+						);
+
 		);
+		print_r($d);
 	}
 
 
 	public function addNSRecord() {
 
-		array(	
-				'domain-name'='domain.asia' ,
-				'value'='ns1.domain.com'
-				);
+		
+		$d = $this->apicaller->managednsrecord()->addNSRecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'ns1.domain.com'
+						);
+
+		);
+		print_r($d);
 	}
 
 
 	public function addTXTRecord() {
 
-		array(	
-				'domain-name'='domain.asia' ,
-				'value'='Mail Server'
-				);
+		
+		$d = $this->apicaller->managednsrecord()->addTXTRecord(array( 
+															'domain-name'=>'domain.asia',
+															'value'=>'Mail Server'
+						);
+
+		);
+
+		print_r($d);
 	}
 
 
 	public function addSRVRecord() {
 
-		array( 
-					'domain-name'='domain.asia',
-					'host'='_chat._tcp.domain-name.com',
-					'value'='chat.domain.com'
-			 ) ;
+		
+		$d = $this->apicaller->managednsrecord()->addSRVRecord(array( 
+															'domain-name'=>'domain.asia',
+															'host'=>'_chat._tcp.domain-name.com',
+															'value'=>'chat.domain.com'
+						);
 
+		);
+
+		print_r($d);
 
 	}
 
 
-	public function ModifyIPv4AddressRecord() {
+	public function modifyIPv4AddressRecord() {
 
-	 	array( 	
-	 			'domain-name'='domain.asia' ,
-	 			'current-value'='0.0.0.0',
-	 			'new-value'='1.1.1.1'
-	 		);
+	 	
+	 	$d = $this->apicaller->managednsrecord()->modifyIPv4AddressRecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'0.0.0.0',
+															'new-value'=>'1.1.1.1'
+						);
+
+		);
+
+		print_r($d);
 	 }
 
 
 	 
-	public function ModifyIPv6AddressRecord() {
+	public function modifyIPv6AddressRecord() {
 
-	 	array( 'domain-name'='domain.asia' ,
-	 		'current-value'='2001:252:0:1::2008:6',
-	 		'new-value'='2001:252:0:1::2008:8'
+	 
+	 		
+
+	 	$d = $this->apicaller->managednsrecord()->modifyIPv6AddressRecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'2001:252:0:1::2008:6',
+															'new-value'=>'2001:252:0:1::2008:8'
+						);
+
+		);
+
+		print_r($d);
 	 }
 
-	 public function ModifyCNAMERecord() {
+	 public function modifyCNAMERecord() {
 
-	 	array( 'domain-name'='domain.asia' ,'current-value'='blog.domain.com','new-value'='wp.domain.com' ) ;
+	 	$d = $this->apicaller->managednsrecord()->modifyCNAMERecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'blog.domain.com'
+															'new-value'=>'wp.domain.com' 
+						);
+
+		);
+
+		print_r($d);
+	 
+
 	 }
 
 
-	public function ModifyMXRecord() {
+	public function modifyMXRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.asia&current-value=mail.domain.com&new-value=mail1.domain.com
+	
+
+	 	$d = $this->apicaller->managednsrecord()->modifyMXRecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'mail.domain.com'
+															'new-value'=>'mail1.domain.com'
+						);
+
+		);
+
+		print_r($d);
 	
 	}
 	
 
-	public function ModifyNSRecord() {
+	public function modifyNSRecord() {
 
-	 auth-userid=0&api-key=key&domain-name=domain.asia&current-value=ns1.domain.com&new-value=ns2.domain.com
+	
+	 	$d = $this->apicaller->managednsrecord()->modifyNSRecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'ns1.domain.com'
+															'new-value'=>'ns2.domain.com'
+						);
+
+		);
+
+		print_r($d);
 	 }
 
-	  public function ModifyTXTRecord() {
+	  public function modifyTXTRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.asia&current-value=Mail Server&new-value=Chat Server
+	
+	 	$d = $this->apicaller->managednsrecord()->modifyTXTRecord(array( 
+															'domain-name'=>'domain.asia',
+															'current-value'=>'Mail Server'
+															'new-value'=>'Chat Server'
+						);
+
+		);
+
+		print_r($d);
 	 }
 
-	  public function ModifySRVRecord() {
+	  public function modifySRVRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.asia&host=_chat._tcp.domain-name.com&current-value=chat.domain.com&new-value=chat2.domain.com
+
+	
+	 	$d = $this->apicaller->managednsrecord()->modifySRVRecord(array( 
+															'domain-name'=>'domain.asia',
+															'host'=>'_chat._tcp.domain-name.com',
+															'current-value'=>'chat.domain.com'
+															'new-value'=>'chat2.domain.com'
+						);
+
+		);
+
+		print_r($d);
+
 	 }
 
-	 public function ModifySOARecord() {
+	 public function modifySOARecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&responsible-person=admin@domain.com&refresh=7200&retry=7200&expire=172800&ttl=14400
+	 	
+	 
+	 	$d = $this->apicaller->managednsrecord()-> modifySOARecord(array( 
+															'domain-name'=>'domain.com',
+															'responsible-person'=>'admin@domain.com',
+															'refresh'=>7200,
+															'retry'=7200,
+															'expire'=172800,
+															'ttl'=14400
+						);
+
+		);
+
+		print_r($d);
+
 	 }
 
 	  public function searchDnsRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.asia&type=A&no-of-records=10&page-no=1
+	 	$d = $this->apicaller->managednsrecord()-> searchDnsRecord(array( 
+															'domain-name'=>'domain.asia',
+															'type'='A',
+															'no-of-records'=>1,
+																'page-no'=>1
+						);
+
+		);
+
+		print_r($d);
 	 }
 
 	  public function deleteDnsRecord() {		//deprecated.
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=ns&value=ns1.domain.com
+	
+	 	$d = $this->apicaller->managednsrecord()->deleteDnsRecord(array( 
+															'domain-name'=>'domain.com',
+															'host'='ns',
+															'value'='ns1.domain.com'
+														
+						);
+
+		);
+
+		print_r($d);
 	 }
 
 	  public function deleteIPv4Record() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=www&value=0.0.0.0
+	 	$d = $this->apicaller->managednsrecord()->deleteIPv4Record(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='www',
+															'value'='0.0.0.0'
+														
+						);
+
+		);
+
+		print_r($d);
 	 }
 
 	  public function deleteIPv6Record() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=www&value=0.0.0.0
+	 	
+	 	$d = $this->apicaller->managednsrecord()->deleteIPv6Record(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='www',
+															'value'='0.0.0.0'
+														
+						);
+
+		);
+
+		print_r($d);
 	 }
 
 	  public function deleteCNAMERecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=webmail&value=webmail.domain.com
+	
+	 	$d = $this->apicaller->managednsrecord()->deleteCNAMERecord(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='webmail',
+															'value'='webmail.domain.com'
+														
+						);
+
+		);
+
+		print_r($d);
 	 }
 	  public function deleteMXRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=@&value=mx1.domain.com
+
+	 	$d = $this->apicaller->managednsrecord()->deleteMXRecord(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='@',
+															'value'='mx1.domain.com'
+														
+						);
+
+		);
+
+		print_r($d);
 	 }
 	  public function deleteNSRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=@&value=ns1.domain.com
+	
+	 	$d = $this->apicaller->managednsrecord()->deleteNSRecord(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='@',
+															'value'='ns1.domain.com'
+														
+						);
+
+		);
 	 }
 
 	
 	public function deleteTXTRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=@&value=text-value
+	 	
+	 	$d = $this->apicaller->managednsrecord()->deleteTXTRecord(array( 
+															'domain-name'=>'domain.com',
+															
+															'host'='@',
+															'value'='text-value'
+														
+						);
+
+		);
 
 	}
 
 	
 	public function deleteSRVRecord() {
 
-	 	auth-userid=0&api-key=key&domain-name=domain.com&host=_chat._tcp.domain-name.com&value=chat.domain.com&port=0000&weight=0
-	 }
+	 	
+	 	$d = $this->apicaller->managednsrecord()->deleteSRVRecord(array( 
+															'domain-name'=>'domain.com',														
+															'host'='_chat._tcp.domain-name.com',
+															'value'='chat.domain.com',
+															'port'=0000 ,
+															'weight'= 0
+														
+						);
+
+		);
+	}
 
 
 }
