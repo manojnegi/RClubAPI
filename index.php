@@ -1020,7 +1020,1155 @@ print_r($dataValidatingRegistrationContact);
   echo $customer_mod;
 
  */
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get_client_ip() {
+    $ipaddress = '';
+   
+     if($_SERVER['REMOTE_ADDR'])
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+  
+    return $ipaddress;
+}
+
+// $ip=get_client_ip();
+// $generatetoken = $apicaller->subreseller()->Generate_Token(array(
+//  "ip"=>$ip
+//  ));
+// print_r($generatetoken);
+
+
+// $autheticatetoken = $apicaller->subreseller()->Authenticate_Token(array(
+//  "token"=>"0fpdgmmx"
+//  ));
+// print_r($autheticatetoken);
+
+
+
+// $promo = $apicaller->subreseller()->promo_price(array(
+//  ));
+// print_r($promo);
+
+
+// $temp = $apicaller->subreseller()->Temporary_Password(array(
+//  "reseller-id"=>"529904"
+//  ));
+// print_r($temp);
+
+
+// $search = $apicaller->subreseller()->Search_Reseller(array(
+//     "no-of-records"=>"10",
+//     "page-no"=>"1"
+//  ));
+// print_r($search);
+
+
+// $modify = $apicaller->subreseller()->Modify_Sub_Reseller(array(
+
+
+//  "username"=>"rahul@gmail.com",
+//  "lang-pref"=>"en",
+//     "address-line-1"=>"vsfv",
+//     "city"=>"madhubani",
+//     "state"=>"bihar",
+//     "country"=>"US",
+//     "zipcode"=>"847211",
+//     'phone-cc'=>"91",
+//     "phone"=>"000000",
+//     "reseller-id"=>"529904" 
+   
+//  ));
+// print_r($modify);
+
+
+// $premium = $apicaller->subreseller()->Premium_Domain_Product(array(
+
+//  "resellerid"=>"529904",
+//  "status"=>true
+   
+//  ));
+// print_r($premium);
+
+// $premiumsignup = $apicaller->subreseller()->Premium_Domain_Signup(array(
+
+  
+//  "resellerid"=>529904
+  
+//  ));
+// print_r($premiumsignup);
+
+/* -------PRODUCT API------ */
+
+
+// $viewproduct = $apicaller->product()->ViewProduct(array(
+          
+//            "domain-name"=>"rahul.com",
+//            "product-key"=>"domcno"
+
+//            ));
+// print_r($viewproduct);
+
+// $getdetails = $apicaller->product()->Get_Product_Details(array());
+// print_r($getdetails);
+
+// $categoeykeys = $apicaller->product()->Category_Keys(array());
+// print_r($categoeykeys);
+
+// $plandetails = $apicaller->product()->Plan_Details(array());
+// print_r($plandetails);
+
+// $moveproduct = $apicaller->product()->Move_Product(array(
+            
+//            "domain-name"=>"rahul.com",
+//            "existing-customer-id"=>"10704470",
+//            "new-customer-id"=>"1117753",
+//            "default-contact"=>""
+//  ));
+// print_r($moveproduct);
+
+
+/*-----email-----*/
+
+// $addnew = $apicaller->email()->AddWeb(array(
+//            "domain-name"=>"rahul.com",
+//            "customer-id"=>"11167692",
+//            "months"=>"12",
+//            "plan-id"=>"3831162",
+//            "invoice-option"=>"NoInvoice"
+//  ));
+// print_r($addnew);
+
+// $renew = $apicaller->email()->ReNew(array(
+
+//            "order-id"=>"54730087",
+            
+//            "months"=>"12",
+           
+//            "invoice-option"=>"NoInvoice"
+//  ));
+// print_r($renew);
+
+// $modify = $apicaller->email()->ModifyWebServiceOrder(array(
+
+//            "order-id"=>"54730087",
+//            "months"=>"12",
+//            "new-plan-id"=>"3831162",
+//            "invoice-option"=>"NoInvoice"
+//  ));
+
+// print_r($modify);
+
+
+// $enablessl = $apicaller->email()->EnableSSL(array(
+
+//              "order-id"=>"54730087",
+
+//            "invoice-option"=>"NoInvoice"
+//    ));
+
+// print_r($enablessl);
+
+// $disablessl = $apicaller->email()->DisableSSL(array(
+
+//              "order-id"=>"54730087"
+
+           
+//    ));
+
+// print_r($disablessl);
+
+
+// $suspend = $apicaller->email()->SuspendOrder(array(
+
+//              "order-id"=>"54730087",
+//               "reason"=>"asdasf"
+           
+//    ));
+
+// print_r($suspend);
+
+
+
+// $unsuspend = $apicaller->email()->UnSuspendOrder(array(
+
+//              "order-id"=>"54730087",         
+           
+//    ));
+
+// print_r($unsuspend);
+
+
+// $deleteorder = $apicaller->email()->DeleteWebServiceOrder(array(
+
+//              "order-id"=>"54730087",         
+           
+//    ));
+
+//  print_r($deleteorder);
+
+
+
+// $details = $apicaller->email()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ));
+
+//   print_r($details);
+
+// $activeplan = $apicaller->email()->ActivePlan(array(
+//          ));
+
+//   print_r($activeplan);
+
+
+// $customerpricing = $apicaller->email()->CustomerPricing(array(
+//          ));
+
+//   print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->email()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+ // $bandwidthpricing = $apicaller->email()->ResellerPricingOnBandwidth(array(
+ //         ));
+
+ //  print_r($bandwidthpricing);
+
+
+
+// $orderid = $apicaller->email()->GetOrderId(array(
+
+//            "domain-name"=>"rahul.com"         
+           
+//              ));
+
+//  print_r($orderid);
+
+
+// $searchorder = $apicaller->email()->SearchOrder(array(
+
+//            "no-of-records"=>"10", 
+//            "page-no"=>"1"        
+           
+//              ));
+
+//  print_r($searchorder);
+
+
+// $getprice = $apicaller->email()->GetUpgradePrice(array(
+
+//            "order-id"=>"54730087", 
+//            "new-plan-id"=>"3831162",
+//            "months"=>"12"
+
+           
+//              ));
+
+//  print_r($getprice);
+
+
+
+// $changepassword = $apicaller->email()->ChangeHostingPanelPassword(array(
+
+//            "order-id"=>"54730087", 
+//            "new-passwd"=>"abc@123"
+       
+
+//              ));
+
+//  print_r($changepassword);
+
+
+
+// $dnsrecord = $apicaller->email()->DNSRecord(array(
+
+//           "order-id"=>"54730087", 
+       
+
+//              ));
+//  print_r($dnsrecord);
+
+
+/* Single Domain Hosting Linux Plan */
+
+
+// $add = $apicaller->sdhlinuxplan()->Add(array(
+
+//                  'domain-name' => "rahul.com",
+//          'customer-id' =>"11167692",
+//          'months' => "12",
+//          'plan-id' => "3831162",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),array("country"=>"India"));
+// print_r($add);
+
+
+// $renew = $apicaller->sdhlinuxplan()->ReNew(array(
+
+//                  'order-id' => "54730087",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($renew);
+
+// $modify = $apicaller->sdhlinuxplan()->Modify(array(
+
+//                  'order-id' => "54730087",
+//                  "new-plan-id"=>"3831162",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($modify);
+
+
+
+// $enablessl = $apicaller->sdhlinuxplan()->EnableSSL(array(
+
+//                  'order-id' => "54730087",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($enablessl);
+
+
+// $disablessl = $apicaller->sdhlinuxplan()->DisableSSL(array(
+
+//                  'order-id' => "54730087",
+
+//          ),"in");
+// print_r($disablessl);
+
+// $suspend = $apicaller->sdhlinuxplan()->SuspendOrder(array(
+
+//                  'order-id' => "54730087",
+//                     "reason"=>"reason-for-suspension"
+//          ));
+// print_r($suspend);
+
+
+
+
+// $unsuspend = $apicaller->sdhlinuxplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+
+
+// $unsuspend = $apicaller->sdhlinuxplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+// $delete = $apicaller->sdhlinuxplan()->Delete(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ),"in");
+// print_r($delete);
+
+
+
+//  $details = $apicaller->sdhlinuxplan()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ),'in');
+
+// print_r($details);
+
+
+
+// $plandetails = $apicaller->sdhlinuxplan()->PlanDetails(array(
+
+          
+           
+//              ));
+//  print_r($plandetails);
+
+
+
+// $customerpricing = $apicaller->sdhlinuxplan()->CustomerPricing(array(
+//          ));
+
+//    print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->sdhlinuxplan()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+
+
+
+// $orderid = $apicaller->sdhlinuxplan()->GetOrderId(array(
+
+//           "domain-name"=>"rahul.com"         
+           
+//                    ),'in');
+//  print_r($orderid);
+
+ // $searchorder = $apicaller->sdhlinuxplan()->SearchOrder(array(
+
+ //          "no-of-records"=>"10", 
+ //          "page-no"=>"1"        
+           
+ //           ),'in');
+
+ //  print_r($searchorder);
+
+ // $getprice = $apicaller->sdhlinuxplan()->GetUpgradePrice(array(
+
+ //                     "order-id"=>"54730087", 
+ //                     "new-plan-id"=>"3831162",
+ //                     "months"=>"12"
+
+           
+ //       ));
+
+ // print_r($getprice);
+
+
+
+ // $changepassword = $apicaller->sdhlinuxplan()->ChangeHostingPanelPassword(array(
+
+  //           "order-id"=>"54730087", 
+  //           "new-passwd"=>"abc@123"
+       
+
+ //           ),'in');
+
+ // print_r($changepassword);
+
+
+
+ // $dnsrecord = $apicaller->sdhlinuxplan()->DNSRecord(array(
+
+ //        "order-id"=>"54730087", 
+       
+
+ //           ),'in');
+ // print_r($dnsrecord);
+
+
+/*----Single Domain Hosting Windows Plan----*/
+
+
+// $add = $apicaller->sdhwindowsplan()->Add(array(
+
+//                  'domain-name' => "rahul.com",
+//          'customer-id' =>"11167692",
+//          'months' => "12",
+//          'plan-id' => "3831162",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),array("country"=>"India"));
+// print_r($add);
+
+
+// $renew = $apicaller->sdhwindowsplan()->ReNew(array(
+
+//                  'order-id' => "54730087",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($renew);
+
+// $modify = $apicaller->sdhwindowsplan()->Modify(array(
+
+//                  'order-id' => "54730087",
+//                  "new-plan-id"=>"3831162",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($modify);
+
+
+
+// $enablessl = $apicaller->sdhwindowsplan()->EnableSSL(array(
+
+//                  'order-id' => "54730087",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($enablessl);
+
+
+// $disablessl = $apicaller->sdhwindowsplan()->DisableSSL(array(
+
+//                  'order-id' => "54730087",
+
+//          ),"in");
+// print_r($disablessl);
+
+// $suspend = $apicaller->sdhwindowsplan()->SuspendOrder(array(
+
+//                  'order-id' => "54730087",
+//                     "reason"=>"reason-for-suspension"
+//          ));
+// print_r($suspend);
+
+
+
+
+// $unsuspend = $apicaller->sdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+/*----Single Domain Hosting Windows Plan----*/
+
+
+// $add = $apicaller->sdhwindowsplan()->Add(array(
+
+//                  'domain-name' => "rahul.com",
+//          'customer-id' =>"11167692",
+//          'months' => "12",
+//          'plan-id' => "3831162",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),array("country"=>"India"));
+// print_r($add);
+
+
+// $renew = $apicaller->sdhwindowsplan()->ReNew(array(
+
+//                  'order-id' => "54730087",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($renew);
+
+// $modify = $apicaller->sdhwindowsplan()->Modify(array(
+
+//                  'order-id' => "54730087",
+//                  "new-plan-id"=>"3831162",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($modify);
+
+
+
+// $enablessl = $apicaller->sdhwindowsplan()->EnableSSL(array(
+
+//                  'order-id' => "54730087",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($enablessl);
+
+
+// $disablessl = $apicaller->sdhwindowsplan()->DisableSSL(array(
+
+//                  'order-id' => "54730087",
+
+//          ),"in");
+// print_r($disablessl);
+
+// $suspend = $apicaller->sdhwindowsplan()->SuspendOrder(array(
+
+//                  'order-id' => "54730087",
+//                     "reason"=>"reason-for-suspension"
+//          ));
+// print_r($suspend);
+
+
+
+
+// $unsuspend = $apicaller->sdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+
+
+// $unsuspend = $apicaller->sdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+// $delete = $apicaller->sdhwindowsplan()->Delete(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ),"in");
+// print_r($delete);
+
+
+
+//  $details = $apicaller->sdhwindowsplan()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ),'in');
+
+// print_r($details);
+
+
+
+// $plandetails = $apicaller->sdhwindowsplan()->PlanDetails(array(
+
+          
+           
+//              ));
+//  print_r($plandetails);
+
+
+
+// $customerpricing = $apicaller->sdhwindowsplan()->CustomerPricing(array(
+//          ));
+
+//    print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->sdhwindowsplan()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+
+
+
+// $orderid = $apicaller->sdhwindowsplan()->GetOrderId(array(
+
+//           "domain-name"=>"rahul.com"         
+           
+//                    ),'in');
+//  print_r($orderid);
+
+ // $searchorder = $apicaller->sdhwindowsplan()->SearchOrder(array(
+
+ //          "no-of-records"=>"10", 
+ //          "page-no"=>"1"        
+           
+ //           ),'in');
+
+ //  print_r($searchorder);
+
+ // $getprice = $apicaller->sdhwindowsplan()->GetUpgradePrice(array(
+
+ //                     "order-id"=>"54730087", 
+ //                     "new-plan-id"=>"3831162",
+ //                     "months"=>"12"
+
+           
+ //       ));
+
+ // print_r($getprice);
+
+
+
+ // $changepassword = $apicaller->sdhwindowsplan()->ChangeHostingPanelPassword(array(
+
+  //           "order-id"=>"54730087", 
+  //           "new-passwd"=>"abc@123"
+       
+
+ //           ),'in');
+
+ // print_r($changepassword);
+
+
+
+ // $dnsrecord = $apicaller->sdhwindowsplan()->DNSRecord(array(
+
+ //        "order-id"=>"54730087", 
+       
+
+ //           ),'in');
+ // print_r($dnsrecord);
+// print_r($unsuspend);
+
+
+
+// $unsuspend = $apicaller->sdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+// $delete = $apicaller->sdhwindowsplan()->Delete(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ),"in");
+// print_r($delete);
+
+
+
+//  $details = $apicaller->sdhwindowsplan()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ),'in');
+
+// print_r($details);
+
+
+
+// $plandetails = $apicaller->sdhwindowsplan()->PlanDetails(array(
+
+          
+           
+//              ));
+//  print_r($plandetails);
+
+
+
+// $customerpricing = $apicaller->sdhwindowsplan()->CustomerPricing(array(
+//          ));
+
+//    print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->sdhwindowsplan()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+
+
+
+// $orderid = $apicaller->sdhwindowsplan()->GetOrderId(array(
+
+//           "domain-name"=>"rahul.com"         
+           
+//                    ),'in');
+//  print_r($orderid);
+
+ // $searchorder = $apicaller->sdhwindowsplan()->SearchOrder(array(
+
+ //          "no-of-records"=>"10", 
+ //          "page-no"=>"1"        
+           
+ //           ),'in');
+
+ //  print_r($searchorder);
+
+ // $getprice = $apicaller->sdhwindowsplan()->GetUpgradePrice(array(
+
+ //                     "order-id"=>"54730087", 
+ //                     "new-plan-id"=>"3831162",
+ //                     "months"=>"12"
+
+           
+ //       ));
+
+ // print_r($getprice);
+
+
+
+ // $changepassword = $apicaller->sdhwindowsplan()->ChangeHostingPanelPassword(array(
+
+  //           "order-id"=>"54730087", 
+  //           "new-passwd"=>"abc@123"
+       
+
+ //           ),'in');
+
+ // print_r($changepassword);
+
+
+
+ // $dnsrecord = $apicaller->sdhwindowsplan()->DNSRecord(array(
+
+ //        "order-id"=>"54730087", 
+       
+
+ //           ),'in');
+ // print_r($dnsrecord);
+
+
+
+
+
+/* ----------------Multiple Domain Hosting Linux Plan-------------------- */
+
+
+// $add = $apicaller->mdhlinuxplan()->Add(array(
+
+//                  'domain-name' => "rahul.com",
+//          'customer-id' =>"11167692",
+//          'months' => "12",
+//          'plan-id' => "3831162",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),array("country"=>"India"));
+// print_r($add);
+
+
+// $renew = $apicaller->mdhlinuxplan()->ReNew(array(
+
+//                  'order-id' => "54730087",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($renew);
+
+// $modify = $apicaller->mdhlinuxplan()->Modify(array(
+
+//                  'order-id' => "54730087",
+//                  "new-plan-id"=>"3831162",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($modify);
+
+
+
+// $enablessl = $apicaller->mdhlinuxplan()->EnableSSL(array(
+
+//                  'order-id' => "54730087",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($enablessl);
+
+
+// $disablessl = $apicaller->mdhlinuxplan()->DisableSSL(array(
+
+//                  'order-id' => "54730087",
+
+//          ),"in");
+// print_r($disablessl);
+
+// $suspend = $apicaller->mdhlinuxplan()->SuspendOrder(array(
+
+//                  'order-id' => "54730087",
+//                     "reason"=>"reason-for-suspension"
+//          ));
+// print_r($suspend);
+
+
+
+
+// $unsuspend = $apicaller->mdhlinuxplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+
+
+// $unsuspend = $apicaller->mdhlinuxplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+// $delete = $apicaller->mdhlinuxplan()->Delete(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ),"in");
+// print_r($delete);
+
+
+
+//  $details = $apicaller->mdhlinuxplan()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ),'in');
+
+// print_r($details);
+
+
+
+// $plandetails = $apicaller->mdhlinuxplan()->PlanDetails(array(
+
+          
+           
+//              ));
+//  print_r($plandetails);
+
+
+
+// $customerpricing = $apicaller->mdhlinuxplan()->CustomerPricing(array(
+//          ));
+
+//    print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->mdhlinuxplan()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+
+
+
+// $orderid = $apicaller->mdhlinuxplan()->GetOrderId(array(
+
+//           "domain-name"=>"rahul.com"         
+           
+//                    ),'in');
+//  print_r($orderid);
+
+ // $searchorder = $apicaller->mdhlinuxplan()->SearchOrder(array(
+
+ //          "no-of-records"=>"10", 
+ //          "page-no"=>"1"        
+           
+ //           ),'in');
+
+ //  print_r($searchorder);
+
+ // $getprice = $apicaller->mdhlinuxplan()->GetUpgradePrice(array(
+
+ //                     "order-id"=>"54730087", 
+ //                     "new-plan-id"=>"3831162",
+ //                     "months"=>"12"
+
+           
+ //       ));
+
+ // print_r($getprice);
+
+
+
+ // $changepassword = $apicaller->mdhlinuxplan()->ChangeHostingPanelPassword(array(
+
+  //           "order-id"=>"54730087", 
+  //           "new-passwd"=>"abc@123"
+       
+
+ //           ),'in');
+
+ // print_r($changepassword);
+
+
+
+ // $dnsrecord = $apicaller->mdhlinuxplan()->DNSRecord(array(
+
+ //        "order-id"=>"54730087", 
+       
+
+ //           ),'in');
+ // print_r($dnsrecord);
+
+
+
+
+
+
+
+
+/*----------------------Multiple Domain Hosting Windows Plan--------------------*/
+
+
+// $add = $apicaller->mdhwindowsplan()->Add(array(
+
+//                  'domain-name' => "rahul.com",
+//          'customer-id' =>"11167692",
+//          'months' => "12",
+//          'plan-id' => "3831162",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),array("country"=>"India"));
+// print_r($add);
+
+
+// $renew = $apicaller->mdhwindowsplan()->ReNew(array(
+
+//                  'order-id' => "54730087",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($renew);
+
+// $modify = $apicaller->mdhwindowsplan()->Modify(array(
+
+//                  'order-id' => "54730087",
+//                  "new-plan-id"=>"3831162",
+//          'months' => "12",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($modify);
+
+
+
+// $enablessl = $apicaller->mdhwindowsplan()->EnableSSL(array(
+
+//                  'order-id' => "54730087",
+//          'invoice-option'=>"NoInvoice"
+
+//          ),"in");
+// print_r($enablessl);
+
+
+// $disablessl = $apicaller->mdhwindowsplan()->DisableSSL(array(
+
+//                  'order-id' => "54730087",
+
+//          ),"in");
+// print_r($disablessl);
+
+// $suspend = $apicaller->mdhwindowsplan()->SuspendOrder(array(
+
+//                  'order-id' => "54730087",
+//                     "reason"=>"reason-for-suspension"
+//          ));
+// print_r($suspend);
+
+
+
+
+// $unsuspend = $apicaller->mdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+
+
+// $unsuspend = $apicaller->mdhwindowsplan()->UnSuspendOrder(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ));
+// print_r($unsuspend);
+
+// $delete = $apicaller->mdhwindowsplan()->Delete(array(
+
+//                  'order-id' => "54730087"
+                   
+//          ),"in");
+// print_r($delete);
+
+
+
+//  $details = $apicaller->mdhwindowsplan()->Details(array(
+
+//              "order-id"=>"54730087",         
+           
+//                ),'in');
+
+// print_r($details);
+
+
+
+// $plandetails = $apicaller->mdhwindowsplan()->PlanDetails(array(
+
+          
+           
+//              ));
+//  print_r($plandetails);
+
+
+
+$customerpricing = $apicaller->mdhwindowsplan()->CustomerPricing(array(
+          ));
+
+   print_r($customerpricing);
+
+
+  // $resellerpricing = $apicaller->mdhwindowsplan()->ResellerPricing(array(
+  //        ));
+
+  // print_r($resellerpricing);
+ 
+
+
+
+// $orderid = $apicaller->mdhwindowsplan()->GetOrderId(array(
+
+//           "domain-name"=>"rahul.com"         
+           
+//                    ),'in');
+//  print_r($orderid);
+
+ // $searchorder = $apicaller->mdhwindowsplan()->SearchOrder(array(
+
+ //          "no-of-records"=>"10", 
+ //          "page-no"=>"1"        
+           
+ //           ),'in');
+
+ //  print_r($searchorder);
+
+ // $getprice = $apicaller->mdhwindowsplan()->GetUpgradePrice(array(
+
+ //                     "order-id"=>"54730087", 
+ //                     "new-plan-id"=>"3831162",
+ //                     "months"=>"12"
+
+           
+ //       ));
+
+ // print_r($getprice);
+
+
+
+ // $changepassword = $apicaller->mdhwindowsplan()->ChangeHostingPanelPassword(array(
+
+  //           "order-id"=>"54730087", 
+  //           "new-passwd"=>"abc@123"
+       
+
+ //           ),'in');
+
+ // print_r($changepassword);
+
+
+
+ // $dnsrecord = $apicaller->mdhwindowsplan()->DNSRecord(array(
+
+ //        "order-id"=>"54730087", 
+       
+
+ //           ),'in');
+ // print_r($dnsrecord);
+/*
+
 
 
 
