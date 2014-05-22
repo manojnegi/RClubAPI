@@ -52,6 +52,8 @@ class APICaller {
         //constructor
     */
     public function __construct($apihost, $authid) {
+       
+
         $this->apiUrl = $apihost;
 		$this->authid = $authid;
 		$this->debug = new Debug();
@@ -61,36 +63,36 @@ class APICaller {
 
         
 
-        $actions = new Actions($this) ;
-        $billing = new Billing($this) ;
-        $contact = new Contact($this) ;
-        $customer = new Customer($this);
-        $dsplinuxplans = new DSPLinuxplans($this);
-        $digitalcertificate = new DigitalCertificate($this) ;
-        $dns = new Dns($this);
-        $domain  = new Domain($this) ;
-        $domainforwardingservice = new DomainForwardingService($this)s;
-        $esmdomain = new ESMDomain($this);
-        $esmmailinglist = new ESMMailingList($this);
-        $email = new Email($this);
-        $emailaccount = new EmailAccount($this);
-        $enterpriseemail = new EnterpriseEmail($this);
-        $freeemailservice = new FreeEmailService($this);
-        $general = new General($this);
-        $legalagreement = new LegalAgreement($this);
-        $mdhlinuxplan = new MDHLinuxPlan($this);
-        $mdhwindowsplan = new MDHWindowsPlan($this);
-        $managednsrecord = new ManageDnsRecord($this);
-        $orderManagement = new OrderManagement($this);
-        $paymentgateway = new PaymentGateway($this);
-        $pricing = new Pricing($this);
-        $product = new Product($this);
-        $rhlinuxplans = new RHLinuxPlans($this);
-        $rhwindowsplans = new RHWindowsPlans($this);     
-        $sdhlinuxplan = new SDHLinuxPlan($this);
-        $sdhwindowsplan = new SDHWindowsplan($this);
-        $subreseller = new SubReseller($this);
-        $vpslinuxplans = new VPSLinuxPlans($this);
+        $this->actions =          new Actions($this) ;
+        $this->billing =          new Billing($this) ;
+        $this->contact =          new Contact($this) ;
+        $this->customer =         new Customer($this);
+        $this->dsplinuxplans =    new DSPLinuxPlans($this);
+        $this->digitalcertificate =   new DigitalCertificate($this) ;
+        $this->dns = new Dns($this);
+        $this->domain  = new Domain($this) ;
+        $this->domainforwardingservice = new DomainForwardingService($this) ;
+        $this->esmdomain = new ESMDomain($this);
+        $this->esmmailinglist = new ESMMailingList($this);
+        $this->email = new Email($this);
+        $this->emailaccount = new EmailAccount($this);
+        $this->enterpriseemail = new EnterpriseEmail($this);
+        $this->freeemailservice = new FreeEmailService($this);
+        $this->general = new General($this);
+        $this->legalagreement = new LegalAgreement($this);
+        $this->mdhlinuxplan = new MDHLinuxPlan($this);
+        $this->mdhwindowsplan = new MDHWindowsPlan($this);
+        $this->managednsrecord = new ManageDnsRecord($this);
+        $this->orderManagement = new OrderManagement($this);
+        $this->paymentgateway = new PaymentGateway($this);
+        $this->pricing = new Pricing($this);
+        $this->product = new Product($this);
+        $this->rhlinuxplans = new RHLinuxPlans($this);
+        $this->rhwindowsplans = new RHWindowsPlans($this);     
+        $this->sdhlinuxplan = new SDHLinuxPlan($this);
+        $this->sdhwindowsplan = new SDHWindowsPlan($this);
+        $this->subreseller = new SubReseller($this);
+        $this->vpslinuxplans = new VPSLinuxPlans($this);
 
         
 		

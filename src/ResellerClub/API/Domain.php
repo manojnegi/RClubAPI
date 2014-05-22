@@ -24,9 +24,10 @@ class Domain extends APICallerAbstract {
         return $response;
     }
 
-    /*
-     * Show domain suggestions
+     /*
+     *    Show domain suggestions
      */
+     
 
     public function suggestDomains(array $params) {
         $endPoint = Http::prepare('domains/suggest-names.json');
@@ -348,15 +349,213 @@ class Domain extends APICallerAbstract {
 
     
       /*
-      Cancels the Transfer-In Order that is awaiting Admin approval.trar.
+      30 Cancels the Transfer-In Order that is awaiting Admin approval.trar.
      */
 
-    public function waitingToCancelTransferOrder(array $params) {
+    public function cancelTransferOrder(array $params) {
         $endPoint = Http::prepare('domains/cancel-transfer.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
         if (!is_object($response)) {
             throw new ResponseException(__METHOD__);
         }
+        return $response;
+    }
+
+
+
+
+    /*
+     * 32 Suspend order
+     */
+    public function suspend(array $params) {
+        $endPoint = Http::prepare('orders/suspend.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+    // public function suspend(array $params) {
+    //     return $this->apicaller->ordermanagement()->suspend($params) ;
+    // }
+    
+    /*
+     * 33 Unsuspend order
+     */
+    public function Unsuspend(array $params) {
+        $endPoint = Http::prepare('orders/unsuspend.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+    // public function unsuspend(array $params) {
+    // //     return $this->apicaller->ordermanagement()->unsuspend($params) ;
+    // // }
+
+
+    /*
+     * 34 Deletes the specified Domain Registration Order.
+     */
+    public function delete(array $params) {
+        $endPoint = Http::prepare('domains/delete.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+
+   
+
+
+    /*
+     * 35 Restores the specified Domain Registration Order.  //order-id=0&invoice-option=KeepInvoice
+     */
+    public function restore(array $params) {
+        $endPoint = Http::prepare('domains/restore.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+    /*
+     * 36 Recheck zone configuration with .DE Registry of the expired .DE Domain Registration order.
+                                                    // order-id=0
+     */
+    public function recheckNS(array $params) {
+        $endPoint = Http::prepare('domains/de/recheck-ns.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+    /*
+     37  Allows associating/dissociating the Membership Token/ID provided by the .XXX Registry, 
+          to a Domain Registration Order.
+                                                                              // order-id=123&association-id=123
+     */
+    public function DotXXXAssociationDetails(array $params) {
+        $endPoint = Http::prepare('domains/dotxxx/association-details');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+    /*
+     38  Adds a Delegation Signer (DS) Record for a Domain Registration Order.
+                  //order-id=0&attr-name1=keytag&attr-value1=123&attr-name2=algorithm&attr-value2=3
+                  &attr-name3=digesttype&attr-value3=1&attr-name4=digest
+                  &attr-value4=49FD46E6C4B45C55D4AC49FD46E6C4B45C55D111
+     */
+    public function addDSRecord(array $params) {
+        $endPoint = Http::prepare('domains/add-dnssec.xml');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+    /*
+     39  delete a Delegation Signer (DS) Record for a Domain Registration Order.
+                  //order-id=0&attr-name1=keytag&attr-value1=123&attr-name2=algorithm
+                  &attr-value2=3&attr-name3=digesttype&attr-value3=1&attr-name4=digest
+                  &attr-value4=49FD46E6C4B45C55D4AC49FD46E6C4B45C55D111
+     */
+    public function deleteDSRecord(array $params) {
+        $endPoint = Http::prepare('domains/del-dnssec.xml');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+    //40 access denied for skip Verification of Registrant Contact Email Address
+
+
+    /*
+     41 Resends the verification email to the Registrant Contact Email Address for the specified Domain Registration Order.
+                  //order-id=0
+     */
+    public function resendVerification(array $params) {
+        $endPoint = Http::prepare('domains/raa/resend-verification.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+    /*
+     42 RAdds a Pre-Registration Order for the specified Domain Name(s).
+          //customerid=0&domain=domain1.ads
+     */
+    public function addPreRegistrationOrder(array $params) {
+        $endPoint = Http::prepare('domains/preordering/add.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+      /*
+     43  Deletes the Pre-Registration Order for the specified Domain Name(s).
+          //customerid=0&domain=domain1.ads
+    */
+
+    public function deletePreRegistrationOrder(array $params) {
+        $endPoint = Http::prepare('domains/preordering/delete.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
+        return $response;
+    }
+
+
+
+      /*
+     44  Fetches the Pre-Registration Wishlist.
+          //no-of-records=10&page-no=1
+    */
+
+    public function fetchPreRegistrationWishlist(array $params) {
+        $endPoint = Http::prepare('domains/preordering/fetch.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
+        return $response;
+    }
+
+       /*
+     45  Fetches the TLDs for the specified Category.
+          //category=services
+    */
+
+    public function fetchPreRegistrationTLDs(array $params) {
+        $endPoint = Http::prepare('domains/preordering/fetchtldlist.xml');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
+        return $response;
+    }
+
+
+       /*
+     46  Checks the availability of the specified Domain Name(s) in the Sunrise Phase.
+          //domainname=domain1&tld=bike&smd=<smd_file_content>
+    */
+
+    public function  checkAvailabilitySunRise(array $params) {
+        $endPoint = Http::prepare('domains/available-sunrise.json');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
+        return $response;
+    }
+
+
+        /*
+     47  Fetches the Trademark Claim Data, based on the Trademark Claim Key.
+          //lookup-key=claim-key
+    */
+
+    public function fetchTMNotice(array $params) {
+        $endPoint = Http::prepare('domains/get-tm-notice.xml');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
+        return $response;
+    }
+
+
+         /*
+     48 Fetches the list of TLDs currently in the Sunrise / Landrush Period
+          //phase=sunrise
+    */
+
+    public function fetchTLDSunRise(array $params) {
+        $endPoint = Http::prepare('domains/tlds-in-phase.xml');
+        $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
         return $response;
     }
 }

@@ -5,7 +5,7 @@ namespace ResellerClub\API;
 /**
  * The Tickets class exposes key methods for reading and updating ticket data
  */
-class Domain extends APICallerAbstract {
+class DomainForwardingService extends APICallerAbstract {
 
     
     public function __construct($apicaller) {
