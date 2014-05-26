@@ -27,14 +27,12 @@ class VPSLinuxPlansTest {
 
 	public function add() {
 
-		$ca = $this->apicaller->vpslinuxplans()->add( array (
-																 	'domain-name'=>'name' ,
-																	'customer-id'=>0,
-																	'months'=>0,
-																	'plan-id'=>0,
-																 	'invoice-option'=>'NoInvoice'
-																 )
-		);
+$ca = $this->apicaller->vpslinuxplans()->add( array ("domain-name"=>"rahul.com",
+           "customer-id"=>"11167692",
+            "months"=>"12",
+            "plan-id"=>"2705138",
+            "invoice-option"=>"NoInvoice"
+    ));
 
 		print_r($ca);
 	}
@@ -51,10 +49,10 @@ class VPSLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->vpslinuxplans()->renew( array ( 
-																	'order-id'=>0 ,
-																	'months'=>0,
-																	'invoice-option'=>'NoInvoice'
-																)
+'order-id'=>'54792315' ,
+'months'=>'12',
+'invoice-option'=>'NoInvoice'
+)
 		);
 
 		echo "<pre>";
@@ -67,12 +65,12 @@ class VPSLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->vpslinuxplans()->modify( array ( 
-																	'order-id'=>0 ,
-																	'months'=>0,
-																	'new-plan-id'=0 ,
-																	'invoice-option'=>'NoInvoice'
-																)
-		);
+                    "order-id"=>"54792315",
+                     "new-plan-id"=>"2705138",
+           "months"=>"12",
+           
+            "invoice-option"=>"NoInvoice"
+		));
 
 		echo "<pre>";
 		print_r($pd);
@@ -83,13 +81,11 @@ class VPSLinuxPlansTest {
 
 
 		
-		$pd = $this->apicaller->vpslinuxplans()->addAddOn(	array( 
-
-																'order-id'=>0 ,
-																 'addon'=>'ssl'
-																'invoice-option'=>'NoInvoice'
-															)
-		);
+		$pd = $this->apicaller->vpslinuxplans()->addAddOn(array(
+                    "order-id"=>"54792315",
+                     "addon"=>"ssl",
+                      "invoice-option"=>"onlyAdd"
+                ));
 
 		echo "<pre>";
 		print_r($pd);
@@ -100,17 +96,17 @@ class VPSLinuxPlansTest {
 
 	
 
-			$pd = $this->apicaller->vpslinuxplans()->deleteAddOn(array('order-id'=>0 ,
-							'addon-id'=>0));
-		echo "<pre>";
-		print_r($pd);
+$pd = $this->apicaller->vpslinuxplans()->deleteAddOn(array('order-id'=>'54792315' ,
+                                'addon-id'=>'1525'));
+echo "<pre>";
+print_r($pd);
 
 	}
 
 	public function suspend() {
 
 	
-		$pd = $this->apicaller->vpslinuxplans()->suspend(array('order-id'=>0 ,
+		$pd = $this->apicaller->vpslinuxplans()->suspend(array('order-id'=>'54792315' ,
 													'reason'=>'reason-for-suspension'
 							));
 		echo "<pre>";
@@ -120,7 +116,7 @@ class VPSLinuxPlansTest {
 
 	public function unsuspend() {
 
-		$pd = $this->apicaller->vpslinuxplans()->suspend(array('order-id'=>0 ,
+		$pd = $this->apicaller->vpslinuxplans()->suspend(array('order-id'=>'54792315' ,'reason'=>'reason-for-unsuspension'
 													
 							));
 		echo "<pre>";
@@ -132,7 +128,7 @@ class VPSLinuxPlansTest {
 
 	public function delete() {
 
-		$pd = $this->apicaller->vpslinuxplans()->delete(array('order-id'=>0 ,
+		$pd = $this->apicaller->vpslinuxplans()->delete(array('order-id'=>'54792315' ,
 													
 							));
 		echo "<pre>";
@@ -142,7 +138,7 @@ class VPSLinuxPlansTest {
 
 	public function getDetails() {
 
-		$pd = $this->apicaller->vpslinuxplans()->getDetails(array('order-id'=>0 ,
+		$pd = $this->apicaller->vpslinuxplans()->getDetails(array('order-id'=>'54792315' ,
 													
 							));
 		echo "<pre>";
@@ -166,7 +162,7 @@ class VPSLinuxPlansTest {
 	public function getOrderId(){
 			
 
-		$pd = $this->apicaller->vpslinuxplans()->getOrderId(array( 'domain-name'=>'domainname.asia'
+		$pd = $this->apicaller->vpslinuxplans()->getOrderId(array( 'domain-name'=>'netfunda.com'
 													
 							));
 		echo "<pre>";
@@ -179,8 +175,8 @@ class VPSLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->vpslinuxplans()->searchOrders(array( 
-																'no-of-records'=>1,
-																'page-no'=>1
+																'no-of-records'=>'10',
+																'page-no'=>'1'
 													
 															)
 		);
@@ -192,14 +188,9 @@ class VPSLinuxPlansTest {
 
 	public function modifyPrice(){
 	
-		$pd = $this->apicaller->vpslinuxplans()->modifyPrice(array( 
-
-																'order-id'=>0 ,
-																'new-plan-id'=0,
-																'months'=0
-													
-															)
-		);
+		$pd = $this->apicaller->vpslinuxplans()->modifyPrice(array(
+																'order-id'=>'54792315',
+																'new-plan-id'=>'477358'));
 		echo "<pre>";
 		print_r($pd);
 
@@ -209,11 +200,7 @@ class VPSLinuxPlansTest {
 	public function getCustomerPricing(){
 
 			
-		$pd = $this->apicaller->vpslinuxplans()->getCustomerPricing(array( 
-																'customer-id'=>0  //optional , By default, generic Customer Pricing will be retrieved.
-													
-															)
-		);
+		$pd = $this->apicaller->vpslinuxplans()->getCustomerPricing(array());
 		echo "<pre>";
 		print_r($pd);
 

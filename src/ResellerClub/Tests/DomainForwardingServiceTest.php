@@ -6,7 +6,7 @@ namespace ResellerClub\Tests;
 use ResellerClub\API\APICaller as RClubAPI;
 
 
-class ProductTest {
+class DomainForwardingServiceTest {
 
 	protected $apicaller ;
 
@@ -25,10 +25,13 @@ class ProductTest {
 
 	*/
 
+
+	
+
 	public function activate() {
 
-		$ca = $apicaller->domainforwardingservice()->activate(array (
-																'order-id'=>'0',
+		$ca = $this->apicaller->domainforwardingservice()->activate(array (
+																'order-id'=>'54792315',
 												
 		));
 
@@ -45,8 +48,8 @@ class ProductTest {
 	public function getDetails() {
 
 	
-		$ca = $apicaller->domainforwardingservice()->getDetails(array (
-																'order-id'=>'0',
+		$ca = $this->apicaller->domainforwardingservice()->getDetails(array (
+																'order-id'=>'54792315',
 												
 		));
 
@@ -58,8 +61,9 @@ class ProductTest {
 
 	public function manage() {
 		
-		$ca = $apicaller->domainforwardingservice()->manage(array (
-																'order-id'=>'0',
+		$ca = $this->apicaller->domainforwardingservice()->manage(array (
+																'order-id'=>'54792315',
+																'forward-to'=>'www.hosting.netfunda.com'
 												
 		));
 
@@ -70,8 +74,8 @@ class ProductTest {
 
 	public function getDnsRecords(){
 
-			$ca = $apicaller->domainforwardingservice()->getDnsRecords(array (
-																'domain-name'=>'domainname.com'
+			$ca = $this->apicaller->domainforwardingservice()->getDnsRecords(array (
+																'domain-name'=>'www.netfunda.com'
 												
 		));
 

@@ -36,11 +36,9 @@ class ManageDnsRecord extends APICallerAbstract {
      * Check availability for a product
      */
     public function addIPv6AddressRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage/add-ipv6-record.json.json');
+        $endPoint = Http::prepare('dns/manage/add-ipv6-record.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
-            throw new ResponseException(__METHOD__);
-        }
+      
         return $response;
     }
 
@@ -50,7 +48,7 @@ class ManageDnsRecord extends APICallerAbstract {
      * 3Check availability for a product
      */
     public function addCNAMERecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//add-cname-record.json');
+        $endPoint = Http::prepare('dns/manage/add-cname-record.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
         if (!is_object($response)) {
             throw new ResponseException(__METHOD__);
@@ -100,7 +98,7 @@ class ManageDnsRecord extends APICallerAbstract {
      * 3Check availability for a product
      */
     public function addSRVRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//add-srv-record.json.json');
+        $endPoint = Http::prepare('dns/manage/add-srv-record.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
         if (!is_object($response)) {
             throw new ResponseException(__METHOD__);
@@ -257,7 +255,7 @@ class ManageDnsRecord extends APICallerAbstract {
      * 3Check availability for a product  //it is deprecated.
      */
     public function  deleteMXRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//delete-mx-record.json');
+        $endPoint = Http::prepare('dns/manage/delete-mx-record.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
        
         return $response;
@@ -267,7 +265,7 @@ class ManageDnsRecord extends APICallerAbstract {
      * 3Check availability for a product  //it is deprecated.
      */
     public function  deleteNSRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//delete-ns-record.json');
+        $endPoint = Http::prepare('dns/manage/delete-ns-record.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
        
         return $response;
@@ -277,17 +275,17 @@ class ManageDnsRecord extends APICallerAbstract {
      * 3Check availability for a product  //it is deprecated.
      */
     public function  deleteTXTRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//delete-txt-record.json');
+        $endPoint = Http::prepare('dns/manage/delete-txt-record.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
        
         return $response;
     }
 
- /*
+    /*
      * 3Check availability for a product  //it is deprecated.
      */
     public function  deleteSRVRecord(array $params) {
-        $endPoint = Http::prepare('dns/manage//delete-srv-record.json');
+        $endPoint = Http::prepare('dns/manage/delete-srv-record.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'GET');
        
         return $response;

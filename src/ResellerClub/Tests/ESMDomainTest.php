@@ -26,126 +26,127 @@ class ESMDomainTest {
 
 	*/
 
-	public function isOwnershipVerified() {
-			
-
-		$ca = $this->apicaller->essdomain()->isOwnershipVerified(array (
-																'order-id'=>'0',
-		));
-
-		print_r($ca);
-	}
+public function isOwnershipVerified() {
 
 
+$ca = $this->apicaller->esmdomain()->isOwnershipVerified(array (
+'order-id'=>'54792590',
+));
 
-	/*
-
-	
-
-	*/
-	public function addDomainAlias() {
-
-		
-		$pd = $this->apicaller->essdomain()->addDomainAlias(array('order-id'=0,
-											'alias'=>'alias-domainname.com'));
-		echo "<pre>";
-		print_r($pd);
-	}
-
-
-	public function deleteDomainAlias(){
-			
-			$pd = $this->apicaller->essdomain()-> deleteDomainAlias(array(
-												'order-id'=>0,
-												'alias'=>'alias-domainname.com'
-												)
-			);
-
-		echo "<pre>";
-		print_r($pd);
-
-	}
-
-	public function getNotificationEmail() {
-			
-		$pd = $this->apicaller->essdomain()->getNotificationEmail(array('order-id'=>0 ));
-		echo "<pre>";
-		print_r($pd);
-
-	}
-
-
-	public function modifyNotificationEmail(){
-			
-		$m 	=$this->apicaller->essdomain()->modifyNotificationEmail(array (
-				
-					'order-id'=>0 ,	
-					'notification-email'=>'user1@emailaddress2.com	'
-				) );
+print_r($ca);
+}
 
 
 
-		print_r($m) ;
-
-	}
-
-	public function getCatchAllAcount(){
-
-			
-		$m 	=$this->apicaller->essdomain()->getCatchAllAcount(array (
-				
-					'order-id'=>0 ,	
-				) );
+/*
 
 
 
-		print_r($m) ;
-
-	}
-
-	public function activateCatchAllAcount(){
-			
-
-		$m 	=$this->apicaller->essdomain()->activateCatchAllAcount(array (
-				
-					'order-id'=>0 ,
-					'catchall-email'=>'user1@domainname.com'	
-				) );
+*/
+public function addDomainAlias() {
 
 
-
-		print_r($m) ;
-
-	}
-
-	public function deactivateCatchAllAcount(){
-
-			
-		$m 	=$this->apicaller->essdomain()->deactivateCatchAllAcount(array (
-				
-					'order-id'	=>	0,	
-				) );
+$pd = $this->apicaller->esmdomain()->addDomainAlias(array(
+    'order-id'=>'54792590',
+'alias'=>'pukai@hotmail.com'));
+echo "<pre>";
+print_r($pd);
+}
 
 
+public function deleteDomainAlias(){
 
-		print_r($m) ;
+$pd = $this->apicaller->esmdomain()-> deleteDomainAlias(array(
+'order-id'=>'54792590',
+'alias'=>'pukai@hotmail.com'
+)
+);
 
-	}
+echo "<pre>";
+print_r($pd);
 
-	public function getDNSRecords(){
+}
 
-			
-		$m 	=$this->apicaller->essdomain()->getDNSRecords(array (
-				
-					'order-id'	=>	0,
-						
-				) );
+public function getNotificationEmail() {
+
+$pd = $this->apicaller->esmdomain()->getNotificationEmail(array('order-id'=>'54792590' ));
+echo "<pre>";
+print_r($pd);
+
+}
+
+
+public function modifyNotificationEmail(){
+
+$m 	=$this->apicaller->esmdomain()->modifyNotificationEmail(array (
+
+'order-id'=>'54792590' ,	
+'notification-email'=>'pukai@hotmail.com'
+) );
 
 
 
-		print_r($m) ;
+print_r($m) ;
 
-	}
+}
+
+public function getCatchAllAcount(){
+
+
+$m 	=$this->apicaller->esmdomain()->getCatchAllAcount(array (
+
+'order-id'=>'54792590' ,	
+) );
+
+
+
+print_r($m) ;
+
+}
+
+public function activateCatchAllAcount(){
+
+
+$m 	=$this->apicaller->esmdomain()->activateCatchAllAcount(array (
+
+'order-id'=>'54792590' ,
+'catchall-email'=>'pukai@hotmail.com'	
+) );
+
+
+
+print_r($m) ;
+
+}
+
+public function deactivateCatchAllAcount(){
+
+
+$m 	=$this->apicaller->esmdomain()->deactivateCatchAllAcount(array (
+
+'order-id'	=>	'54792590',	
+) );
+
+
+
+print_r($m) ;
+
+}
+
+public function getDNSRecords(){
+
+
+$m 	=$this->apicaller->esmdomain()->getDNSRecords(array (
+
+'order-id'	=>	'54792590',
+
+) );
+
+
+
+print_r($m) ;
+
+}
 
 
 

@@ -27,14 +27,16 @@ class DSPLinuxPlansTest {
 
 	public function add() {
 
-		$ca = $this->apicaller->dsplinuxplans()->add( array (
-																 	'domain-name'=>'name' ,
-																	'customer-id'=>0,
-																	'months'=>0,
-																	'plan-id'=>0,
+		$ca = $this->apicaller->dsplinuxplans()->add( array(
+																 	'domain-name'=>'rahul.com' ,
+																	'customer-id'=>"10693064",
+																	'months'=>"12",
+																	'plan-id'=>"3831162",
 																 	'invoice-option'=>'NoInvoice'
 																 )
 		);
+
+
 
 		print_r($ca);
 	}
@@ -51,8 +53,8 @@ class DSPLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->dsplinuxplans()->renew( array ( 
-																	'order-id'=>0 ,
-																	'months'=>0,
+																	'order-id'=>54792315,
+																	'months'=>12,
 																	'invoice-option'=>'NoInvoice'
 																)
 		);
@@ -69,8 +71,8 @@ class DSPLinuxPlansTest {
 		
 		$pd = $this->apicaller->dsplinuxplans()->addAddOn(	array( 
 
-																'order-id'=>0 ,
-																 'addon'=>'ssl'
+																'order-id'=>54792315 ,
+																'addon'=>'ipaddress',
 																'invoice-option'=>'NoInvoice'
 															)
 		);
@@ -84,7 +86,7 @@ class DSPLinuxPlansTest {
 
 	
 
-			$pd = $this->apicaller->dsplinuxplans()->deleteAddOn(array('order-id'=>0 ,
+			$pd = $this->apicaller->dsplinuxplans()->deleteAddOn(array('order-id'=>54792315 ,
 							'addon-id'=>0));
 		echo "<pre>";
 		print_r($pd);
@@ -94,7 +96,7 @@ class DSPLinuxPlansTest {
 	public function suspend() {
 
 	
-		$pd = $this->apicaller->dsplinuxplans()->suspend(array('order-id'=>0 ,
+		$pd = $this->apicaller->dsplinuxplans()->suspend(array('order-id'=>54792315 ,
 													'reason'=>'reason-for-suspension'
 							));
 		echo "<pre>";
@@ -104,7 +106,7 @@ class DSPLinuxPlansTest {
 
 	public function unsuspend() {
 
-		$pd = $this->apicaller->dsplinuxplans()->suspend(array('order-id'=>0 ,
+		$pd = $this->apicaller->dsplinuxplans()->suspend(array('order-id'=>54792315 ,
 													
 							));
 		echo "<pre>";
@@ -116,7 +118,7 @@ class DSPLinuxPlansTest {
 
 	public function delete() {
 
-		$pd = $this->apicaller->dsplinuxplans()->delete(array('order-id'=>0 ,
+		$pd = $this->apicaller->dsplinuxplans()->delete(array('order-id'=>54792315 ,
 													
 							));
 		echo "<pre>";
@@ -126,7 +128,7 @@ class DSPLinuxPlansTest {
 
 	public function getDetails() {
 
-		$pd = $this->apicaller->dsplinuxplans()->getDetails(array('order-id'=>0 ,
+		$pd = $this->apicaller->dsplinuxplans()->getDetails(array('order-id'=>54792315 ,
 													
 							));
 		echo "<pre>";
@@ -163,7 +165,7 @@ class DSPLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->dsplinuxplans()->searchOrders(array( 
-																'no-of-records'=>1,
+																'no-of-records'=>10,
 																'page-no'=>1
 													
 															)
@@ -178,7 +180,7 @@ class DSPLinuxPlansTest {
 
 			
 		$pd = $this->apicaller->dsplinuxplans()->getCustomerPricing(array( 
-																'customer-id'=>0  //optional , By default, generic Customer Pricing will be retrieved.
+																'customer-id'=>10693064  //optional , By default, generic Customer Pricing will be retrieved.
 													
 															)
 		);
@@ -191,7 +193,7 @@ class DSPLinuxPlansTest {
 
 				
 		$pd = $this->apicaller->dsplinuxplans()->getResellerPricing(array( 
-																'reseller_id'=>0  //optional , By default, generic Customer Pricing will be retrieved.
+																'reseller_id'=>529303  //optional , By default, generic Customer Pricing will be retrieved.
 													
 															)
 		);

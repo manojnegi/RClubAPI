@@ -58,9 +58,9 @@ class EmailAccount extends APICallerAbstract {
     *  4. modify user details.s
     */
     public function modifyUserDetails(array $params) {
-        $endPoint = Http::prepare('mail/modify.json');
-        $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
+        $endPoint = Http::prepare('mail/user/modify.json');
+        $response =json_decode( Http::send($this->apicaller, $endPoint, $params, 'POST'));
+         if (!is_object($response)) {
             throw new ResponseException(__METHOD__);
         }
         return $response;
@@ -262,11 +262,9 @@ class EmailAccount extends APICallerAbstract {
     *  19 delete user forwards
     */
     public function deleteUserForwards(array $params) {
-        $endPoint = Http::prepare('mmail/user/delete-user-forwards.json');
+        $endPoint = Http::prepare('mail/user/delete-user-forwards.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
-            throw new ResponseException(__METHOD__);
-        }
+      
         return $response;
     }
 

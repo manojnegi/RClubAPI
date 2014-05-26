@@ -430,8 +430,8 @@ class Domain extends APICallerAbstract {
           to a Domain Registration Order.
                                                                               // order-id=123&association-id=123
      */
-    public function DotXXXAssociationDetails(array $params) {
-        $endPoint = Http::prepare('domains/dotxxx/association-details');
+        public function DotXXXAssociationDetails(array $params) {
+        $endPoint = Http::prepare('domains/dotxxx/association-details.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
         return $response;
     }

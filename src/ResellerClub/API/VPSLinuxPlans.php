@@ -68,7 +68,7 @@ class VPSLinuxPlans extends APICallerAbstract {
     *  5. Deletes the specified Add-on of the VPS Linux Order.
     */
     public function deleteAddOn(array $params) {
-        $endPoint = Http::prepare('vps/linux/us/addon/delete.json');
+        $endPoint = Http::prepare('vps/linux/delete-addon.json');
         $response = Http::send($this->apicaller, $endPoint, $params, 'POST');
         
         return $response;

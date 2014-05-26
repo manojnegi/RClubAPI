@@ -17,11 +17,9 @@ class ESMDomain extends APICallerAbstract {
      * Check availability for a product
      */
     public function isOwnershipVerified(array $params) {
-        $endPoint = Http::prepare('is-ownership-verified.json');
+        $endPoint = Http::prepare('mail/domain/is-ownership-verified.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
-            throw new ResponseException(__METHOD__);
-        }
+        
         return $response;
     }
 
@@ -95,7 +93,7 @@ class ESMDomain extends APICallerAbstract {
       /*
      *   7 activate catch all account 
      */
-    public function activateCatchAllAccount(array $params) {
+    public function activateCatchAllAcount(array $params) {
         $endPoint = Http::prepare('mail/domain/activate-catchall.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
         if (!is_object($response)) {
@@ -107,7 +105,7 @@ class ESMDomain extends APICallerAbstract {
       /*
      *   8 deactivate catch all account 
      */
-    public function deactivateCatchAllAccount(array $params) {
+    public function deactivateCatchAllAcount(array $params) {
         $endPoint = Http::prepare('mail/domain/deactivate-catchall.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
         if (!is_object($response)) {

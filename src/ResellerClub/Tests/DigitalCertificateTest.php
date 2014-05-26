@@ -20,14 +20,11 @@ class DigitalCertificateTest {
 	
 
 
-	
-
 	public function add() {
 
-		$a = $apicaller->digitalcertificate()->add(array ( 
-																
-																'domain-name'=>'www.afddf.com',
-																'customer-id'=>'11167692',
+		$a = $this->apicaller->digitalcertificate()->add(array( 
+														        'domain-name'=>'www.mrinmoy.com',
+																'customer-id'=>'10693064',
 																'years'=>'2' ,
 																'additional-licenses'=>0 ,
 																'cert-key'=>'wild',
@@ -46,20 +43,20 @@ class DigitalCertificateTest {
 	*/
 	public function cancel() {
 
-		$c = $apicaller->digitalcertificate()->cancel(array ( 
-																'order-id'=>'54732819',
+		$c = $this->apicaller->digitalcertificate()->cancel(array ( 
+																'order-id'=>'54792315',
 																	));
 
-		print_r($c)
+		print_r($c);
 	}
 
 
 	public function enroll() {
 
 		
-		$c = $apicaller->digitalcertificate()->cancel(array ( 
+		$c =$this->apicaller->digitalcertificate()->cancel(array ( 
 
-															'order-id'=>'54732819',
+															'order-id'=>'54792315',
 															'attr-name1'=>'org_name',
 															'attr-value1'=>'name',
 															'attr-name2'=>'org_street1',
@@ -67,7 +64,7 @@ class DigitalCertificateTest {
 														)
 		);
 
-		print_r($c)
+		print_r($c);
 
 	}
 
@@ -75,21 +72,21 @@ class DigitalCertificateTest {
 	public function checkStatus() {
 		
 		
-		$cs = $apicaller->digitalcertificate()->checkStatus(array ( 
-																'order-id'=>'54732819',
+		$cs = $this->apicaller->digitalcertificate()->checkStatus(array ( 
+																'order-id'=>'54792315',
 																'standard-certificate-format'=>'true'
 																	));
-		print_r($cs)
+		print_r($cs);
 	}
 
 
 	public function details(){
 
-			$cs = $apicaller->digitalcertificate()->details(array ( 
-																'order-id'=>'54732819',
+			$cs = $this->apicaller->digitalcertificate()->details(array ( 
+																'order-id'=>'54792315',
 																'option'=>'All'
 																	));
-		print_r($cs)
+		print_r($cs);
 
 
 	}
@@ -97,25 +94,25 @@ class DigitalCertificateTest {
 	
 	public function search(){
 	
-			$cs = $apicaller->digitalcertificate()->search(array ( 
+			$cs = $this->apicaller->digitalcertificate()->search(array ( 
 																'no-of-records'=>10,
 																'page-no'=>1
 																)
 			);
 
-			print_r($cs)
+			print_r($cs);
 
 	}
 
 	
 	public function getOrderId(){
 
-		$cs = $apicaller->digitalcertificate()->getOrderId(array ( 
+		$cs = $this->apicaller->digitalcertificate()->getOrderId(array ( 
 																'domain-name'=>'xyz'
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 
 	}
 
@@ -124,15 +121,15 @@ class DigitalCertificateTest {
 
 			
 		
-		$cs = $apicaller->digitalcertificate()->reissue(array ( 
-																'order-id'=>0,
+		$cs = $this->apicaller->digitalcertificate()->reissue(array ( 
+																'order-id'=>54792315,
 																'csr-string'=>'-----BEGIN NEW CERTIFICATE REQUEST---MIIBwzCCASwCAQAwgYIxCzAJBgNVB-----END NEW CERTIFICATE REQUEST----',
 																'csr-software'=>'IIS',
 																'approver-email'=>'wew@approver.com'
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 	}
 	
 
@@ -140,55 +137,56 @@ class DigitalCertificateTest {
 
 			
 
-	$cs = $apicaller->digitalcertificate()->renew(array ( 
-																'order-id'=>0,
+	$cs = $this->apicaller->digitalcertificate()->renew(array ( 
+																'order-id'=>54792315,
 																'years'=>1,
+																'additional-licenses'=>"2",
 																'exp-date'=>'1279012036',
 																'invoice-option'=>'NoInvoice',
-																'attr-name1'=>'org_name'
+																'attr-name1'=>'org_name',
 																'attr-value1'=>'The organisation Name',
 																'attr-name2'=>'org_street1',
 																'attr-value2'=>'Organization address'
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 
 	}
 	
 	//ordermanagement
 	public function suspend(){
 
-			$cs = $apicaller->digitalcertificate()->suspend(array ( 
-																'order-id'=>0,
+			$cs = $this->apicaller->digitalcertificate()->suspend(array ( 
+																'order-id'=>54792315,
 																'reason'=>'reason-for-suspension'
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 	}
 	
 //order management 
 	public function unsuspend(){
 
-			$cs = $apicaller->digitalcertificate()->unsuspend(array ( 
-																'order-id'=>0
+			$cs = $this->apicaller->digitalcertificate()->unsuspend(array ( 
+																'order-id'=>54792315
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 	}
 	
 
 	public function delete(){
 
-			$cs = $apicaller->digitalcertificate()->delete(array ( 
-																'order-id'=>0
+			$cs =$this->apicaller->digitalcertificate()->delete(array ( 
+																'order-id'=>54792315
 																
 																)
 		);
 
-		print_r($cs)
+		print_r($cs);
 
 
 	}

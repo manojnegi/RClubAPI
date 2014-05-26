@@ -18,10 +18,8 @@ class ESMMailingList extends APICallerAbstract {
      */
     public function addMailingList(array $params) {
         $endPoint = Http::prepare('mail/mailinglist/add.json');
-        $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
-            throw new ResponseException(__METHOD__);
-        }
+        $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'POST'));
+        
         return $response;
     }
 
@@ -59,9 +57,7 @@ class ESMMailingList extends APICallerAbstract {
     public function getDetails(array $params) {
         $endPoint = Http::prepare('api/mail/mailinglist.json');
         $response = json_decode(Http::send($this->apicaller, $endPoint, $params, 'GET'));
-        if (!is_object($response)) {
-            throw new ResponseException(__METHOD__);
-        }
+        
         return $response;
     }
 
