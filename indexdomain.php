@@ -2,20 +2,134 @@
 
 include("vendor/autoloader.php");
 
-use ResellerClub\API\APICaller as RClubAPI;
 
-$apihost = "https://test.httpapi.com/api/";
+//replace Product in the below line with the class you want to test.
 
-$authid = "501535";
-$apikey = "LIlLJGvlqBhFdSO7nSNatdE0lGozb0oy";
 
+ use ResellerClub\Tests\DomainTest as RClubAPI;
+
+
+
+//$apihost = "https://test.httpapi.com/api/";
 //$authid = "78536";
 //$apikey = "AbL5mxydZZih2AzMUsc80xEgfDmrdiRm"; // replace this with your token
 //$password = "mypwd"; // If you want to use your password to authenticate
 
+//Ajay's  Account API key details
+$apihost = "https://test.httpapi.com/api/";
+$authid = "501535";
+$apikey = "LIlLJGvlqBhFdSO7nSNatdE0lGozb0oy";
 
-$apicaller = new RClubAPI($apihost, $authid);
-$apicaller->setAuth('apikey', $apikey); // if using API Key
+
+$apicaller = new RClubAPI($apihost, $authid,$apikey);
+
+
+
+
+
+
+///// EXAMPLES BELOW - Uncomment the section to run
+
+
+
+
+
+
+//just call the function of the class you want to test.
+//$apicaller->move() ;
+
+
+//VPSLinux Plans=>
+
+//$apicaller->checkAvailability();
+//$apicaller->suggestDomains();
+//$apicaller->validateTransferRequest();
+//$apicaller->renewsDomainRegistration();
+//$apicaller->DomainRegistrationOrders();
+//$apicaller->getSeverNameOfCustomer();
+//$apicaller->orderIdAgainstDomain();
+//$apicaller->detailOfDomainRegistration();
+//$apicaller->detailOfSpecifiedDomain();
+//$apicaller->modifyServerName();
+//$apicaller->addChildNameServer();
+//$apicaller->modifyHostNameChild();
+//$apicaller->modifyIPAddressChildServeName();
+//$apicaller->deleteIPAddressChildName();
+//$apicaller->modifySpecifiedDomainContacts();
+//$apicaller->renewPrivacyDomain();
+//$apicaller->modifyPrivacyProcDomain();
+//$apicaller->modifyAuthCodeProcDomain();
+//$apicaller->theftProtectionLock();
+//$apicaller->disableTheftProtectionLock();
+//$apicaller->listLockDomain();
+//$apicaller->CTHLoginDetails();
+//$apicaller->modifyTelDomain();
+//$apicaller->resendMailOrder();
+    //$apicaller->releaseUKDomain();
+//$apicaller->cancelTransferOrder();
+//$apicaller->suspend();
+//$apicaller->Unsuspend();
+//$apicaller->delete();
+//$apicaller->restore();
+//$apicaller->recheckNS();
+//$apicaller->DotXXXAssociationDetails();
+//$apicaller->addDSRecord();
+//$apicaller->deleteDSRecord();
+//$apicaller->resendVerification();
+//$apicaller->addPreRegistrationOrder();
+//$apicaller->deletePreRegistrationOrder();
+//$apicaller->fetchPreRegistrationWishlist();
+//$apicaller->fetchPreRegistrationTLDs();
+//$apicaller->checkAvailabilitySunRise();
+//$apicaller->fetchTMNotice();
+//$apicaller->fetchTLDSunRise();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//include("vendor/autoloader.php");
+//
+//use ResellerClub\API\APICaller as RClubAPI;
+//
+//$apihost = "https://test.httpapi.com/api/";
+//
+//$authid = "501535";
+//$apikey = "LIlLJGvlqBhFdSO7nSNatdE0lGozb0oy";
+//
+////$authid = "78536";
+////$apikey = "AbL5mxydZZih2AzMUsc80xEgfDmrdiRm"; // replace this with your token
+////$password = "mypwd"; // If you want to use your password to authenticate
+//
+//
+//$apicaller = new RClubAPI($apihost, $authid);
+//$apicaller->setAuth('apikey', $apikey); // if using API Key
 //$apicaller->setAuth('password', $password); // if using Password
 ///// EXAMPLES BELOW - Uncomment the section to run
 
